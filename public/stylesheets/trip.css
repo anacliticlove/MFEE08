@@ -1,0 +1,240 @@
+:root {
+    --textcolor_1: #F8B417;
+    --textstyle:bold;
+
+    --textcolor_2:#98B716;
+    --textcolor_3: #2D4D26;
+}
+
+/* ---------------------- navbar 導覽列  -------------------------------- */ 
+
+nav {
+    background-image:url("../image/back_bg.jpg");
+    height: 100px;
+    position: relative;
+}
+
+/* logo - 大標 */
+.navbar-light .navbar-brand {
+    color:var( --textcolor_2);
+    font-weight: var( --textstyle);
+}
+
+/* logo - 大標:hover 及 :active 時 */
+.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+    color: var( --textcolor_3);
+    font-weight: bold;
+    position: relative;
+    top: 1px;
+    left: 1px;
+}
+
+/* logo - 小標 */
+.blockquote-footer {
+    color: var( --textcolor_1);
+    font-weight: normal;
+}
+
+/* 右邊一排列表 */
+.navbar-light .navbar-nav .nav-link ,.navbar-light .navbar-nav .nav-link:hover {
+    color: var( --textcolor_1);
+    font-weight:var( --textstyle); 
+}
+
+/* 斜線 */
+.slash {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var( --textcolor_1);
+    font-weight:var( --textstyle);
+}
+
+/* 底線效果 */
+.navbar-collapse > ul > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    border-bottom: 4px solid var( --textcolor_3);
+    transition: 0.5s;
+}
+
+/* 底線效果 */
+.navbar-light .navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* ----------------------------------------------------------------------- */
+
+
+/* ---------------------- content 內文區 -------------------------------- */
+
+/* video */
+img.headerImg {
+    height: 600px;
+}
+
+/* search */
+.bgGreen {
+    background-color: var( --textcolor_2);
+    width: 100%;
+    height: 300px;
+    
+}
+
+h2.titleHeader {
+    color: var( --textcolor_3);
+    font-weight: var( --textstyle);
+    text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+}
+
+/* 豎線 */
+a.line {
+    position: absolute;
+    width: 50%;
+    height: 30%;
+    top: 120%;
+    border-right: solid var( --textcolor_1) 4px;
+    animation: myanimation 0.5s  linear infinite alternate; 
+}
+
+@keyframes myanimation {
+    0% {top: 120%;}
+    25% {top: 130%;}
+    50% {top: 140%;}
+    75% {top: 130%;}
+    100% {top: 120%;}
+}
+
+/* 近期新增的活動 */
+#bgGray {
+    background-color: #DEDEDE;
+
+    
+    width: 100%;
+    /* height: 1500px; */
+    margin-top: 10%;
+}
+
+div.titleGreen {
+    /* position: absolute; */
+}
+
+/* 圖示 - 三角形 */
+div.titleTriangle {
+    width: 30px;
+    height: 30px;
+    background-color: var( --textcolor_1);
+    display: inline-block;
+    clip-path: polygon(100% 100%, 0% 100%, 100% 0);
+}
+
+h4.addActive , h4.popularGuide , h5.addtrip {
+    color: var( --textcolor_2);
+    font-weight: var( --textstyle);
+}
+
+div.addSmallTrip {
+    position: relative;
+}
+
+div.New {
+    position: absolute;
+    margin-top: -5%;
+    margin-left: -5%;
+    z-index: 1;
+    width: 40%;
+    height: 40%;
+}
+
+div.bottomContent {
+    background-color: #FFD77A;
+}
+
+div.bottomContent_2 {
+    background-color: #FF6A79;
+}
+
+/* three button */
+div.threeBtn {
+    position: absolute;
+    bottom: -5%;
+    left: 550px;
+}
+
+/* 共有 */
+a.btn_1, a.btn_2, a.btn_3{
+    position: absolute;
+    clip-path: circle();
+    width: 15px;
+    height: 15px;
+}
+
+a.btn_1 {
+    left: 0px;
+    background-color: var( --textcolor_1);
+}
+
+a.btn_2 {
+    left: 30px;
+    background-color: #ffffff;
+}
+
+
+a.btn_3 {
+    left: 60px;
+    background-color: #ffffff;
+}
+
+/* 熱門導遊 */
+div#popular {
+    height: 1000px;
+}
+
+div.whiteLine {
+    position: absolute;
+    left: 15px; 
+    top: 15px;
+    width: 1185px ;
+    height: 800px;
+    border: solid 2px #ffffff;
+}
+
+
+/* ----------------------------------------------------------------------- */
+
+
+/* ---------------------- footer 頁尾區 -------------------------------- */
+
+#footer {
+    background-color: #2D4D26;
+    width: 100%;
+    height: 200px;
+}
+
+.footer_1 {
+    position: relative;
+}
+
+.d-inline-flex a.afot_connect {
+    color:#ffffff ;
+}
+
+.d-inline-flex a.afot_connect:hover {
+    text-decoration: none;
+    color:#cececeb2;
+    position: relative;
+    top: 1px;
+    left: 1px;
+}
+
+/* 區隔線段 */
+.interval {
+    position: absolute;
+    height: 15%;
+    top: 45%;
+    border-right: solid  2px;
+}
+
+/* ----------------------------------------------------------------------- */
