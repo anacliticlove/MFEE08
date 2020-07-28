@@ -25,11 +25,13 @@
     margin-right: 47px;
     background-color: #fff;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, .3);
+    border-radius: 10px;
 }
 
 .guide li img {
     width: 228px;
     height: 150px;
+    border-radius: 10px;
 }
 
 .guide li h4 {
@@ -48,6 +50,13 @@
 .guide li p span {
     color: orange;
 }
+/* hover效果 */
+
+.guide li:hover{
+    opacity: 0.7;
+    transform: scale(1.1);
+
+  }
 
 
 /* 分頁 */

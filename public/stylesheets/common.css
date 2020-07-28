@@ -9,7 +9,7 @@
 }
 
 body {
-    background: url(../../public/images/back_bg.jpg) fixed;
+    background: url(/images/back_bg.jpg) fixed;
 }
 
 
