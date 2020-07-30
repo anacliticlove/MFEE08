@@ -157,25 +157,25 @@
   <script src="/javascripts/jquery.min.js"></script> 
 <script>
 $(function () {
-  
-  $.get("/guide/123", function (e) {
+  $.get("/trip/memberList", function (e) {
         newsList = JSON.parse(e);
         guideList();
     })
     function guideList(){
       $(".guide").empty();
       $.each(newsList, function (key, obj) {
-            // var newsText = obj.title + " [" + obj.ymd + "]";
             var $li = $("<li></li>")
-                        // .text(newsText)
-                        // .addClass("list-group-item");
-            $li.append('<img src="/images/add_guide1.jpg" alt="" /><h4>'+obj.tripName+'</h4><p><span>'+obj.tirpCity+'</span> 每人NT'+obj.tripPrice+'</p');
+            $li.append('<img src="/images/'+obj.tripPic1+'" alt="" /><h4>'+obj.tripName+'</h4><p><span>'+obj.tirpCity+'</span> 每人NT'+obj.tripPrice+'</p');
             $li.appendTo(".guide");
         })
     }
 
    
 }) 
+
+
+
+
   </script>
 </body>
 

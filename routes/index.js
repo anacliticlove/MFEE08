@@ -13,6 +13,12 @@ router.get("/guide", function (req, res, next) {
     tripPrice: "300",
     tripName: "台中",
   });})
+router.get("/trip", function (req, res, next) {
+  res.render("guide_list", {
+    title:"21",
+    tripPrice: "300",
+    tripName: "台中",
+  });})
 
 
 

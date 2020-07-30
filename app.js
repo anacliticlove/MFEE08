@@ -17,7 +17,8 @@ var conn = mysql.createConnection({
   password: "",
   database: "mfee08",
 });
-app.get("/guide/123", function (request, response) {
+// 取得會員資料  
+app.get("/trip/memberList", function (request, response) {
   conn.query("select * from tripList", "", function (err, rows) {
     if (err) {
       console.log(JSON.stringify(err));
