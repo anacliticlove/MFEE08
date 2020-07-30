@@ -17,8 +17,18 @@ var conn = mysql.createConnection({
   password: "",
   database: "mfee08",
 });
-app.get("/guide/123", function (request, response) {
+app.get("/trip/123", function (request, response) {
   conn.query("select * from tripList", "", function (err, rows) {
+    if (err) {
+      console.log(JSON.stringify(err));
+      return;
+    }
+    console.log(JSON.stringify(rows));
+    response.send(JSON.stringify(rows));
+  });
+});
+app.get("/guide/123", function (request, response) {
+  conn.query("select * from memberlist", "", function (err, rows) {
     if (err) {
       console.log(JSON.stringify(err));
       return;
