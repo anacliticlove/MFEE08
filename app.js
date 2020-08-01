@@ -23,17 +23,17 @@ app.get("/trip/123", function (request, response) {
       console.log(JSON.stringify(err));
       return;
     }
-    console.log(JSON.stringify(rows));
+    // console.log(JSON.stringify(rows));
     response.send(JSON.stringify(rows));
   });
 });
 app.get("/guide/123", function (request, response) {
-  conn.query("select * from memberlist", "", function (err, rows) {
+  conn.query("SELECT * FROM memberlist", "", function (err, rows) {
     if (err) {
       console.log(JSON.stringify(err));
       return;
     }
-    console.log(JSON.stringify(rows));
+    // console.log(JSON.stringify(rows));
     response.send(JSON.stringify(rows));
   });
 });

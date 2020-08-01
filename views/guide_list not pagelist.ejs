@@ -56,7 +56,7 @@
   <!-- 熱門導遊 start -->
   <div class="container">
     <div class="title">
-      <h2 id="aass">帶您暢享完美假期</h2>
+      <h2>熱門導遊帶您暢享完美假期</h2>
     </div>
     <div class="guide clearfix">
       <ul>
@@ -109,6 +109,24 @@
   </div>
   <!-- 熱門導遊 end -->
   <!-- 分頁 -->
+  <div class="pagination-nick">分業</div>
+  <div class="page">
+    <span class="page_num">
+      <a href="#" class="pn_pre">上一頁&lt;&lt;</a>
+      <a href="#">1</a>
+      <a href="#" class="current">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#" class="dotted">... </a>
+      <a href="#" class="pn_next">下一頁 &gt;&gt;</a>
+    </span>
+    <span class="page_skip">
+      共10頁 到第
+      <input type="text" />頁
+      <button>確定</button>
+    </span>
+  </div>
   <div class="container">
     <div class="row" id="content">
     </div>
@@ -150,8 +168,67 @@
     <input id="sss" style="display: none;" class="sss" type="text" name="" value=<%=title%>>
   </div>
   <script src="/javascripts/jquery.min.js"></script>
-  <script src="/javascripts/guide_list.js"></script>
+  <script>
 
+    $(function () {
+      // 行程列表_開始
+      const x = $(".sss").val();
+      let pageList = null;
+      // if (x === "guide") {
+      //   $.get("/trip/123", function (e) {
+      //     tripList = JSON.parse(e);
+      //   }).then(
+      //     () => {
+      //       $(".guide").empty();
+      //       $.each(tripList, function (key, obj) {
+      //         var $li = $("<li></li>")
+      //         $li.append('<img src="/images/trip/' + obj.tripPic1 + '" alt="" /><h4>' + obj.tripName + '</h4><p><span>' + obj.tirpCity + '</span> 每人NT' + obj.tripPrice + '</p');
+      //         $li.appendTo(".guide");
+      //       })
+      //     }
+      //   )
+      // }
+      // if (x === "trip") {
+      //   $.get("/guide/123", function (e) {
+      //     guideList = JSON.parse(e);
+      //     pageList = JSON.parse(e);
+      //     // console.log(pageList);
+      //     return pageList;
+      //   }).then(
+      //     () => {
+      //       $(".guide").empty();
+      //       $.each(guideList, function (key, obj) {
+      //         var $li = $("<li></li>")
+      //         $li.append('<img src="/images/guide/' + obj.memberPic + '" alt="" /><h4>' + obj.memberName + '</h4><p><span>' + obj.guideInfo + '</span> </p');
+      //         $li.appendTo(".guide");
+      //       })
+      //     }
+
+      //   )
+      // }
+      if (x === "trip") {
+        $.get("/guide/123", function (e) {
+          guideList = JSON.parse(e);
+          pagination(guideList,1);
+          return guideList;
+        }).then(
+          () => {
+            $(".guide").empty();
+            $.each(guideList, function (key, obj) {
+              var $li = $("<li></li>")
+              $li.append('<img src="/images/guide/' + obj.memberPic + '" alt="" /><h4>' + obj.memberName + '</h4><p><span>' + obj.guideInfo + '</span> </p');
+              $li.appendTo(".guide");
+            })
+           
+          }
+
+        )
+      }
+
+    }
+    )
+
+  </script>
 </body>
 
 </html>
