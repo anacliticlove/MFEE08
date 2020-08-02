@@ -17,12 +17,8 @@ var conn = mysql.createConnection({
   password: "",
   database: "mfee08",
 });
-<<<<<<< HEAD
 // 取得會員資料  
-app.get("/trip/memberList", function (request, response) {
-=======
-app.get("/trip/123", function (request, response) {
->>>>>>> yoyochi
+app.get("/trip/tripList", function (request, response) {
   conn.query("select * from tripList", "", function (err, rows) {
     if (err) {
       console.log(JSON.stringify(err));
@@ -32,7 +28,7 @@ app.get("/trip/123", function (request, response) {
     response.send(JSON.stringify(rows));
   });
 });
-app.get("/guide/123", function (request, response) {
+app.get("/guide/memberList", function (request, response) {
   conn.query("SELECT * FROM memberlist", "", function (err, rows) {
     if (err) {
       console.log(JSON.stringify(err));

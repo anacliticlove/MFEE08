@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>問導遊 - 尋找私人導遊的專屬平台</title>
+  <!-- FAVIOCN -->
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
+  <!-- 引用css、Bootstrap、 jQuery 與 popper -->
+  <link rel="stylesheet" href="/stylesheets/base.css" />
+  <link rel="stylesheet" href="/stylesheets/common.css" />
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/popper.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/tripProducts.css" />
+</head>
+
+<body>
+  <!-- header start -->
+  <header class="navbar">
+    <!-- logo -->
+    <div class="logo">
+      <img src="/images/logo-w.png" alt="" />
+      <span>- when do you trip?</span>
+    </div>
+    <!-- 搜尋欄 -->
+    <div class="search">
+      <input type="search" value="輸入城市、景點、體驗行程或活動名稱..." />
+      <button>搜尋</button>
+    </div>
+    <!-- 登入/註冊 -->
+    <div class="login">
+      <a href="#">
+        <span>登入/註冊</span>
+      </a>
+    </div>
+    <!-- 快捷導航 -->
+    <ul class="shortcut">
+      <li>
+        <a href="#">選擇你的專屬行程</a>
+      </li>
+      <li>
+        <a href="#">尋找你的專屬導遊</a>
+      </li>
+      <li>
+        <a href="#">購物車</a>
+      </li>
+    </ul>
+  </header>
+
+  <div class="container">
+    <h1><%=title%></h1>
+    <div style=" width: 750px;height: 520px;border:1px solid #000000;">
+      <img class="img-fluid" src="/images/add_guide1.jpg" alt="">
+      <img hidden class="img-fluid" src="/images/add_guide2.jpg" alt="">
+      <img hidden class="img-fluid" src="/images/add_guide3.jpg" alt="">
+    </div>
+    <div class="imgChoose" style="background-color: red; ">
+      <form action="">
+        <label>
+          <input type="radio" class="img" name="image" value="1">
+          <img id="myImage1" src="/images/add_guide1.jpg" alt="">
+        </label> &nbsp;
+        <label>
+          <input type="radio" class="img" name="image" value="2">
+          <img id="myImage2" src="/images/add_guide2.jpg" alt="">
+        </label> &nbsp;
+        <label>
+          <input class="img" type="radio" name="image" value="3">
+          <img id="myImage3" src="/images/add_guide3.jpg" alt="">
+        </label> &nbsp;
+      </form>
+    </div>
+
+    <div class="footer">
+      <div class="links">
+        <dl>
+          <dt>認識問導遊</dt>
+          <dd><a href="#">關於我們</a></dd>
+          <dd><a href="#">管理團隊</a></dd>
+          <dd><a href="#">人才招募</a></dd>
+          <dd><a href="#">客戶服務</a></dd>
+          <dd><a href="#">幫助</a></dd>
+        </dl>
+        <dl>
+          <dt>給旅人</dt>
+          <dd><a href="#">三大保證</a></dd>
+          <dd><a href="#">官方部落格</a></dd>
+          <dd><a href="#">會員好禮</a></dd>
+        </dl>
+        <dl>
+          <dt>合作夥伴</dt>
+          <dd><a href="#">合作夥伴</a></dd>
+          <dd><a href="#">成為導遊</a></dd>
+          <dd><a href="#">同業合作</a></dd>
+          <dd><a href="#">聯盟行銷</a></dd>
+          <dd><a href="#">旅遊客製規劃</a></dd>
+        </dl>
+      </div>
+      <input id="sss" style="display: none;" class="sss" type="text" name="" value=<%=title%>>
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html>

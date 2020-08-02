@@ -149,62 +149,55 @@
     </div>
     <input id="sss" style="display: none;" class="sss" type="text" name="" value=<%=title%>>
   </div>
-<<<<<<< HEAD
-  <script src="/javascripts/jquery.min.js"></script> 
-<script>
-$(function () {
-<<<<<<< HEAD
-  $.get("/trip/memberList", function (e) {
-=======
-  // 行程列表_開始
-  $.get("/trip/123", function (e) {
->>>>>>> yoyochi
-        newsList = JSON.parse(e);
-        guideList();
-    })
-    function guideList(){
-      $(".guide").empty();
-      $.each(newsList, function (key, obj) {
-            var $li = $("<li></li>")
-<<<<<<< HEAD
-            $li.append('<img src="/images/'+obj.tripPic1+'" alt="" /><h4>'+obj.tripName+'</h4><p><span>'+obj.tirpCity+'</span> 每人NT'+obj.tripPrice+'</p');
-=======
-                        // .text(newsText)
-                        // .addClass("list-group-item");
-            $li.append('<img src="/images/trip/'+obj.tripPic1+'" alt="" /><h4>'+obj.tripName+'</h4><p><span>'+obj.tirpCity+'</span> 每人NT'+obj.tripPrice+'</p');
-            $li.appendTo(".guide");
-        })
-    }
-    // 行程列表_結束
-    $.get("/guide/123", function (e) {
-        newsList = JSON.parse(e);
-        guideList();
-    })
-    function guideList(){
-      $(".guide").empty();
-      $.each(newsList, function (key, obj) {
-            // var newsText = obj.title + " [" + obj.ymd + "]";
-            var $li = $("<li></li>")
-                        // .text(newsText)
-                        // .addClass("list-group-item");
-            $li.append('<img src="/images/guide/'+obj.memberPic+'" alt="" /><h4>'+obj.memberName+'</h4><p><span>'+obj.guideInfo.+'</span> </p');
->>>>>>> yoyochi
-            $li.appendTo(".guide");
-        })
-    }
 
-   
-}) 
+  <script src="/javascripts/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $.get("/trip/memberList", function (e) {
+        newsList = JSON.parse(e);
+        guideList();
+      })
+      function guideList() {
+        $(".guide").empty();
+        $.each(newsList, function (key, obj) {
+          var $li = $("<li></li>")
+
+          $li.append('<img src="/images/' + obj.tripPic1 + '" alt="" /><h4>' + obj.tripName + '</h4><p><span>' + obj.tirpCity + '</span> 每人NT' + obj.tripPrice + '</p');
+
+          // .text(newsText)
+          // .addClass("list-group-item");
+          $li.append('<img src="/images/trip/' + obj.tripPic1 + '" alt="" /><h4>' + obj.tripName + '</h4><p><span>' + obj.tirpCity + '</span> 每人NT' + obj.tripPrice + '</p');
+          $li.appendTo(".guide");
+        })
+      }
+      // 行程列表_結束
+      $.get("/guide/123", function (e) {
+        newsList = JSON.parse(e);
+        guideList();
+      })
+      function guideList() {
+        $(".guide").empty();
+        $.each(newsList, function (key, obj) {
+          // var newsText = obj.title + " [" + obj.ymd + "]";
+          var $li = $("<li></li>")
+          // .text(newsText)
+          // .addClass("list-group-item");
+          $li.append('<img src="/images/guide/' + obj.memberPic + '" alt="" /><h4>' + obj.memberName + '</h4><p><span>' + obj.guideInfo.+ '</span> </p');
+          $li.appendTo(".guide");
+        })
+      }
+
+
+    })
 
 
 
 
   </script>
-=======
+
   <script src="/javascripts/jquery.min.js"></script>
   <script src="/javascripts/guide_list.js"></script>
 
->>>>>>> yoyochi
 </body>
 
 </html>

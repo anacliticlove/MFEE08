@@ -18,6 +18,12 @@ router.get("/trip", function (req, res, next) {
     tripPrice: "300",
     tripName: "台中",
   });})
+router.get("/trip/products", function (req, res, next) {
+  res.render("tripProducts", {
+    title:"trip",
+    tripPrice: "300",
+    tripName: "台中",
+  });})
 
 
 

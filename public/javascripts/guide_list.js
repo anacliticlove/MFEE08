@@ -6,7 +6,7 @@ $(function () {
   },1000);
   // 行程列表資料庫_開始
   if (x === "trip") {
-    $.get("/trip/123", function (e) {
+    $.get("/trip/tripList", function (e) {
       tripList = JSON.parse(e);
       pagination(tripList, 1);
       josnData = tripList;
@@ -20,7 +20,7 @@ $(function () {
   }
   // 導遊資料庫_開始
   if (x === "guide") {
-    $.get("/guide/123", function (e) {
+    $.get("/guide/memberList", function (e) {
       guideList = JSON.parse(e);
       pagination(guideList, 1);
       josnData = guideList;
@@ -29,7 +29,6 @@ $(function () {
     }).then(
       () => {
         $(".guide").empty();
-        $()
       }
     )
   }
