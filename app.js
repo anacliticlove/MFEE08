@@ -6,6 +6,7 @@ var logger = require("morgan");
 var mysql = require("mysql");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var session = require('express-session');
 const { response } = require("express");
 
 var app = express();
@@ -47,6 +48,27 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(session({
+  secret: 'gyug7g6fhv',
+//   store: new FileStore({
+//     path: __dirname+'/sessions'
+// }),
+  resave:true,
+  saveUninitialized: false,
+  // cookie: {
+    // 	maxAge: 10 * 1000  // 有效期，单位是毫秒
+	// }
+}));
+// 身分大綱 
+app.use(function (req, res, next) {
+  if (typeof req.session.userName === "undefined"  ) {
+    req.session.userName = "Guest"
+  } 
+  next();
+});
+
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
@@ -67,5 +89,10 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
+
+
+
+
+
 
 module.exports = app;

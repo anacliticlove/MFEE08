@@ -179,7 +179,15 @@ div.line:hover {
 .bgGray, .bgWhite{
     width: 100%;
     margin-top: 100px;
+   
 }
+.bgWhite{
+    background-color: #F6F6F6 !important;
+    height: 350px;
+}
+/* .col-md-7>img{
+  padding-left: 200px;
+} */
 
 /* 近期新增的活動 */
 .bgGray {
@@ -329,12 +337,12 @@ div.arrowBtn button:hover {
 }
 
 img.bgWhiteImg {
-    width: 250px;
+    width: 350px;
 }
 
 div.titleContent {
     padding-top: 100px;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 p.bgWhiteText, span.smallText {

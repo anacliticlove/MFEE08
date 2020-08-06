@@ -20,7 +20,8 @@
   <header class="navbar">
     <!-- logo -->
     <div class="logo">
-      <img src="/images/logo-w.png" alt="" />
+      <a href="/">
+      <img src="/images/logo-w.png" alt="" /></a>
       <span>- when do you trip?</span>
     </div>
     <!-- 搜尋欄 -->
@@ -30,20 +31,33 @@
     </div>
     <!-- 登入/註冊 -->
     <div class="login">
-      <a href="#">
-        <span>登入/註冊</span>
-      </a>
-    </div>
+      <% if( userName == "Guest" && title == ""){ %>
+          <a href="/users/login?backUrl=/trip"><span>登入</span></a>
+        <a href="/users/register?backUrl=/trip"><span>註冊</span></a>
+       <% }else if( userName == "Guest" && title == "guide"){ %>
+         <a href="/users/login?backUrl=/guide"><span>登入</span></a>
+       <a href="/users/register?backUrl=/guide"><span>註冊</span></a>
+       <% }else if(  userName == "Guest"  &&   title == "trip"){ %>
+           <a href="/users/login?backUrl=/trip"><span>登入</span></a>
+        <a href="/users/register?backUrl=/trip"><span>註冊</span></a>
+          <% }else { %>
+         <a href="/users/logout"><span>登出</span></a>
+         <a href="#"><span>個人頁</span></a>
+         <% } %>
+        <!-- <a ><span>Welcome <%=  userName %></span></a> -->
+   </div>
     <!-- 快捷導航 -->
     <ul class="shortcut">
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
       <li>
-        <a href="#">選擇你的專屬行程</a>
+        <a href="/trip">選擇你的專屬行程</a>
       </li>
       <li>
-        <a href="#">尋找你的專屬導遊</a>
+        <a href="/guide">尋找你的專屬導遊</a>
       </li>
       <li>
-        <a href="#">購物車</a>
+        <a href="/users/shopcart">購物車</a>
       </li>
     </ul>
   </header>
@@ -56,7 +70,8 @@
   <!-- 熱門導遊 start -->
   <div class="container">
     <div class="title">
-      <h2 id="aass">帶您暢享完美假期</h2>
+      <a href="/users/shopcart">
+      <h2 id="aass">帶您暢享完美假期</h2></a>
     </div>
     <div class="guide clearfix">
       <ul>
@@ -119,7 +134,7 @@
       </nav>
     </div>
   </div>
-
+  
   <!-- 分頁 -->
   <!-- footer start -->
   <div class="footer">
@@ -149,51 +164,6 @@
     </div>
     <input id="sss" style="display: none;" class="sss" type="text" name="" value=<%=title%>>
   </div>
-
-  <script src="/javascripts/jquery.min.js"></script>
-  <script>
-    $(function () {
-      $.get("/trip/memberList", function (e) {
-        newsList = JSON.parse(e);
-        guideList();
-      })
-      function guideList() {
-        $(".guide").empty();
-        $.each(newsList, function (key, obj) {
-          var $li = $("<li></li>")
-
-          $li.append('<img src="/images/' + obj.tripPic1 + '" alt="" /><h4>' + obj.tripName + '</h4><p><span>' + obj.tirpCity + '</span> 每人NT' + obj.tripPrice + '</p');
-
-          // .text(newsText)
-          // .addClass("list-group-item");
-          $li.append('<img src="/images/trip/' + obj.tripPic1 + '" alt="" /><h4>' + obj.tripName + '</h4><p><span>' + obj.tirpCity + '</span> 每人NT' + obj.tripPrice + '</p');
-          $li.appendTo(".guide");
-        })
-      }
-      // 行程列表_結束
-      $.get("/guide/123", function (e) {
-        newsList = JSON.parse(e);
-        guideList();
-      })
-      function guideList() {
-        $(".guide").empty();
-        $.each(newsList, function (key, obj) {
-          // var newsText = obj.title + " [" + obj.ymd + "]";
-          var $li = $("<li></li>")
-          // .text(newsText)
-          // .addClass("list-group-item");
-          $li.append('<img src="/images/guide/' + obj.memberPic + '" alt="" /><h4>' + obj.memberName + '</h4><p><span>' + obj.guideInfo.+ '</span> </p');
-          $li.appendTo(".guide");
-        })
-      }
-
-
-    })
-
-
-
-
-  </script>
 
   <script src="/javascripts/jquery.min.js"></script>
   <script src="/javascripts/guide_list.js"></script>

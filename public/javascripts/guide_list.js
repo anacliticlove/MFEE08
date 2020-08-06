@@ -1,22 +1,24 @@
 var x = $(".sss").val();
 $(function () {
   //
-  $("#aass").animate({
-    opacity:1,paddingLeft:'+=100'       
-  },1000);
+  $("#aass").animate(
+    {
+      opacity: 1,
+      paddingLeft: "+=100",
+    },
+    1000
+  );
   // 行程列表資料庫_開始
   if (x === "trip") {
     $.get("/trip/tripList", function (e) {
       tripList = JSON.parse(e);
       pagination(tripList, 1);
       josnData = tripList;
-      console.log(josnData);
+      console.log(josnData[0].memberId);
       return josnData;
-    }).then(
-      () => {
-        $(".guide").empty();
-      }
-    )
+    }).then(() => {
+      $(".guide").empty();
+    });
   }
   // 導遊資料庫_開始
   if (x === "guide") {
@@ -26,17 +28,17 @@ $(function () {
       josnData = guideList;
       console.log(josnData);
       return josnData;
-    }).then(
-      () => {
-        $(".guide").empty();
-      }
-    )
+    }).then(() => {
+      $(".guide").empty();
+    });
   }
-}
-)
+});
 //取每個行程的id
 function redirect(e) {
-  alert(e);
+  // alert(e);
+  // currentIndex = e;
+  console.log(josnData);
+  window.location.replace('/trip/location_detail?id='+(e-1));
 }
 
 //分頁製作
@@ -59,8 +61,8 @@ function pagination(josnData, nowPage) {
     currentPage = pageTotal;
   }
   // 由前面可知 最小數字為 6 ，所以用答案來回推公式。
-  const minData = (currentPage * perpage) - perpage + 1;
-  const maxData = (currentPage * perpage);
+  const minData = currentPage * perpage - perpage + 1;
+  const maxData = currentPage * perpage;
   // 先建立新陣列
   const data = [];
   // 這邊將會使用 ES6 forEach 做資料處理
@@ -73,34 +75,45 @@ function pagination(josnData, nowPage) {
     if (num >= minData && num <= maxData) {
       data.push(item);
     }
-  })
+  });
   // 用物件方式來傳遞資料
   const page = {
     pageTotal,
     currentPage,
     hasPage: currentPage > 1,
     hasNext: currentPage < pageTotal,
-  }
+  };
   displayData(data);
   pageBtn(page);
 }
 //生成每個卡片
 function displayData(data) {
-  let str = '';
+  let str = "";
   //判斷是導遊還是行程
   data.forEach((item) => {
     if (x === "guide") {
-      str += `
-      <div onclick="redirect(${item.memberId})"  class="col-md-3 py-2 px-2"><div class="card"><div class="card bg-dark text-white text-left">
-        <img class="card-img-top bg-cover" height="155px" src="/images/guide/${item.memberPic}">
+      str += `<a href=""></a>
+      <div onclick="redirect(${
+        item.memberId
+      })"  class="col-md-3 py-2 px-2"><div class="card"><div class="card bg-dark text-white text-left">
+        <img class="card-img-top bg-cover" height="155px" src="/images/guide/${
+          item.memberPic
+        }">
         <div class="card-img-overlay d-flex justify-content-between align-items-end p-0 px-3" style="background-color: rgba(0, 0, 0, .1)">
-         <h5 class="card-img-title-lg">${item.memberName}</h5><h5 class="card-img-title-sm"></h5>
+         <h5 class="card-img-title-lg">${
+           item.memberName
+         }</h5><h5 class="card-img-title-sm"></h5>
        </div>
       </div>
       <div class="card-body text-left">
-          <p class="card-p-text"><i class="far fa-clock fa-clock-time"></i>&nbsp;<b>擅長項目：</b>${item.guideBest}</p>
+          <p class="card-p-text"><i class="far fa-clock fa-clock-time"></i>&nbsp;<b>擅長項目：</b>${
+            item.guideBest
+          }</p>
         <div class="d-flex justify-content-between align-items-end">
-          <p class="card-p-text"><i class="fas fa-mobile-alt fa-mobile"></i>&nbsp;${item.guideInfo.substring(0, 20)}...</p>
+          <p class="card-p-text"><i class="fas fa-mobile-alt fa-mobile"></i>&nbsp;${item.guideInfo.substring(
+            0,
+            20
+          )}...</p>
         </div>
       </div>
     </div>
@@ -108,16 +121,27 @@ function displayData(data) {
     }
     if (x === "trip") {
       str += `
-      <div onclick="redirect(${item.tripId})"  id="${item.tripId}" class=" col-md-3 py-2 px-2" ><div class="card"><div class="card bg-dark text-white text-left">
-        <img class="card-img-top bg-cover" height="155px" src="/images/trip/${item.tripPic1}">
+      <div onclick="redirect(${item.tripId})"  id="${
+        item.tripId
+      }" class=" col-md-3 py-2 px-2" ><div class="card"><div class="card bg-dark text-white text-left">
+        <img class="card-img-top bg-cover" height="155px" src="/images/trip/${
+          item.tripPic1
+        }">
         <div class="card-img-overlay d-flex justify-content-between align-items-end p-0 px-3" style="background-color: rgba(0, 0, 0, .1)">
-         <h5 class="card-img-title-lg">${item.tripName}</h5><h5 class="card-img-title-sm"></h5>
+         <h5 class="card-img-title-lg">${
+           item.tripName
+         }</h5><h5 class="card-img-title-sm"></h5>
        </div>
       </div>
       <div class="card-body text-left">
-          <p class="card-p-text"><i class="far fa-clock fa-clock-time"></i>&nbsp;<b>${item.tripDate}</b>&emsp;<span>${item.tripTime}</span></p>
+          <p class="card-p-text"><i class="far fa-clock fa-clock-time"></i>&nbsp;<b>${
+            item.tripDate
+          }</b>&emsp;<span>${item.tripTime}</span></p>
         <div class="d-flex justify-content-between align-items-end">
-          <p class="card-p-text"><i class="fas fa-mobile-alt fa-mobile"></i>&nbsp;${item.tripIntroduce.substring(0, 20)}...</p>
+          <p class="card-p-text"><i class="fas fa-mobile-alt fa-mobile"></i>&nbsp;${item.tripIntroduce.substring(
+            0,
+            20
+          )}...</p>
         </div>
       </div>
     </div>
@@ -128,10 +152,12 @@ function displayData(data) {
 }
 //分頁按鈕
 function pageBtn(page) {
-  let str = '';
+  let str = "";
   const total = page.pageTotal;
   if (page.hasPage) {
-    str += `<li class="page-item"><a class="page-link" href="#" data-page="${Number(page.currentPage) - 1}">Previous</a></li>`;
+    str += `<li class="page-item"><a class="page-link" href="#" data-page="${
+      Number(page.currentPage) - 1
+    }">Previous</a></li>`;
   } else {
     str += `<li class="page-item disabled"><span class="page-link">Previous</span></li>`;
   }
@@ -141,9 +167,11 @@ function pageBtn(page) {
     } else {
       str += `<li class="page-item"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
     }
-  };
+  }
   if (page.hasNext) {
-    str += `<li class="page-item"><a class="page-link" href="#" data-page="${Number(page.currentPage) + 1}">Next</a></li>`;
+    str += `<li class="page-item"><a class="page-link" href="#" data-page="${
+      Number(page.currentPage) + 1
+    }">Next</a></li>`;
   } else {
     str += `<li class="page-item disabled"><span class="page-link">Next</span></li>`;
   }
@@ -152,8 +180,8 @@ function pageBtn(page) {
 //更換頁面
 function switchPage(e) {
   e.preventDefault();
-  if (e.target.nodeName !== 'A') return;
+  if (e.target.nodeName !== "A") return;
   const page = e.target.dataset.page;
   pagination(josnData, page);
 }
-pageid.addEventListener('click', switchPage);
+pageid.addEventListener("click", switchPage);

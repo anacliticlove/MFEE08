@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問導遊 - 尋找私人導遊的專屬平台</title>
+    <!-- FAVIOCN -->
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+
+    <!-- 引用css、Bootstrap、 jQuery 與 popper -->
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/common.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/location_detail.css">
+
+</head>
+
+<body>
+    <!-- header start -->
+    <header class="navbar">
+        <!-- logo -->
+        <div class="logo">
+            <a href="/">
+                <img src="/images/logo-w.png" alt="" /></a>
+            <span>- when do you trip?</span>
+        </div>
+        <!-- 搜尋欄 -->
+        <div class="search">
+            <input type="search" value="輸入城市、景點、體驗行程或活動名稱..." />
+            <button>搜尋</button>
+        </div>
+        <!-- 登入/註冊 -->
+        <div class="login">
+            <a href="#">
+                <span>登入/註冊</span>
+            </a>
+        </div>
+        <!-- 快捷導航 -->
+        <ul class="shortcut">
+            <li>
+                <a href="/trip">選擇你的專屬行程</a>
+            </li>
+            <li>
+                <a href="/guide">尋找你的專屬導遊</a>
+            </li>
+            <li>
+                <a href="/users/shopcart">購物車</a>
+            </li>
+        </ul>
+    </header>
+    <!-- header end -->
+    <!-- 詳情頁內容start -->
+    <div class="de_container container">
+        <!-- 麵包屑導航 -->
+      
+        <!-- 預覽區域 -->
+        <div id="photoViewer">
+        </div>
+        <div class="imgChoose">
+            <a href="/images/trip/<%=title.tripPic1%>" class="thumb active" title="Elderberry mallow"><img
+                    src="/images/trip/<%=title.tripPic1%>" alt="Elderberry Marshmallow"></a>
+            <a href="/images/trip/<%=title.tripPic2%>" class="thumb active" title="Rose Marshmallow"><img
+                    src="/images/trip/<%=title.tripPic2%>" alt="Rose Marshmallow"></a>
+            <a href="/images/trip/<%=title.tripPic3%>" class="thumb active" title="Chrysanthemum Marshmallow"><img
+                    src="/images/trip/<%=title.tripPic3%>" alt="Chrysanthemum Marshmallow"></a>
+        </div>
+        <br>
+        <div class="preview_content clearfix">
+            <div class="preview_detail fl">
+                <div class="crumb_wrap">
+                    <a href="#">台灣</a> > <a href="#"><%=title.tirpCity%></a>
+                </div>
+                <h2> <b><%=title.tripName%></b></h2>
+                <ul class="location_detail">
+                    <li>人數限制：<%=title.peoMost%></li>
+                    <li>
+                        <span>行程時間3小時</span>
+                        <span>English/日本語/中文 導覽</span>
+                        <span>有條件取消</span> 
+                    </li>
+                </ul>
+                <h4>
+                    <%=title.tripIntroduce%>
+                </h4>
+                <br>
+                <ul class="program_detail">
+                   <li>注意身體狀況，請準備充足的水分</li>
+                   <li>入園票需自行提前預訂</li>
+                   <li>如果有特殊需求請提前Mail告知</li>
+                </ul>
+            </div>
+            <div class="preview_news fr">
+                <div class="preview_choice">
+                    <div class="calendar">
+                        <div class="title">
+                            <h1 class="green" id="calendar-title">Month</h1>
+                            <h2 class="green small" id="calendar-year">Year</h2>
+                            <a href="" id="prev">Prev Month</a>
+                            <a href="" id="next">Next Month</a>
+                        </div>
+                        <div class="body">
+                            <div class="lightgrey body-list">
+                                <ul>
+                                    <li>MON</li>
+                                    <li>TUE</li>
+                                    <li>WED</li>
+                                    <li>THU</li>
+                                    <li>FRI</li>
+                                    <li>SAT</li>
+                                    <li>SUN</li>
+                                </ul>
+                            </div>
+                            <div class="darkgrey body-list">
+                                <ul id="days">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <form method="POST" action="/users/shopcart">
+                        <input hidden type="text" name="" id="">
+                        <input type="button" class="btn btn-outline-success" value="<%=title.tripDate%>">
+                        <input type="button" class="btn btn-outline-success" value="<%=title.tripTime%>">
+                        <h4>TWD:<%=title.tripPrice%></h4> 
+                        <br><br>   
+                        <button type="submit"> <h3>加入購物車</h3> </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 詳情頁內容end -->
+    <!-- footer start -->
+    <div class="footer">
+        <div class="links">
+            <dl>
+                <dt>認識問導遊</dt>
+                <dd><a href="#">關於我們</a></dd>
+                <dd><a href="#">管理團隊</a></dd>
+                <dd><a href="#">人才招募</a></dd>
+                <dd><a href="#">客戶服務</a></dd>
+                <dd><a href="#">幫助</a></dd>
+            </dl>
+            <dl>
+                <dt>給旅人</dt>
+                <dd><a href="#">三大保證</a></dd>
+                <dd><a href="#">官方部落格</a></dd>
+                <dd><a href="#">會員好禮</a></dd>
+            </dl>
+            <dl>
+                <dt>合作夥伴</dt>
+                <dd><a href="#">合作夥伴</a></dd>
+                <dd><a href="#">成為導遊</a></dd>
+                <dd><a href="#">同業合作</a></dd>
+                <dd><a href="#">聯盟行銷</a></dd>
+                <dd><a href="#">旅遊客製規劃</a></dd>
+            </dl>
+        </div>
+    </div>
+    <script src="/javascripts/location_detail.js"></script>
+    <script>
+        
+    </script>
+</body>
+
+</html>
