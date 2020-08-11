@@ -14,36 +14,38 @@
 
 
 <body>
+
+
     <div class="w">
         <div class="header">
             <div class="logo">
-                <a href="index.html">
-                    <img src="image/logo-w.png" alt="">
+                <a href="/">
+                    <img src="/images/logo-w.png" alt="">
                 </a>
             </div>
         </div>
         <div class="registerarea">
             <h3>會員登入
-                <em>還沒有帳號？去<a href="register.html">註冊</a></em>
+                <em>還沒有帳號？去<a href="/users/register">註冊</a></em>
             </h3>
             <div class="reg_form">
-                <form  id="form1" name="form1" method="post" action="">
+                <form id="form1" name="form1" method="post" action="">
                     <ul>
                         <li>
                             <label for="tel">手機當帳號：</label>
-                            <input type="text" class="inp" name="txtUserName" id="txtUserName">
-                            <span class="error">
-                            <i class="error_icon"></i>
-                            此號碼尚未註冊
-                        </span>
+                            <input type="text" class="inp" onblur="checkID(this)" name="txtUserName" id="txtUserName">
+                            <span id="txtUserNam" class="error">
+                                <i class="error_icon"></i>
+                        
+                            </span>
                         </li>
                         <li>
                             <label for="">登入密碼：</label>
-                            <input name="txtPassword" class="inp" type="text" id="txtPassword">
-                            <span class="success">
-                            <i class="success_icon"></i>
-                            密碼格式正確
-                        </span>
+                            <input name="txtPassword" class="inp" type="password" id="txtPassword">
+                            <span id="txtPasswor" class="success">
+                                <i class="success_icon"></i>
+                           
+                            </span>
                         </li>
                         <li class="safe">
                             安全程度
@@ -63,7 +65,19 @@
             </p>
         </div>
     </div>
-
+    <script>
+        document.getElementById("txtUserNam").onclick=()=>{
+            document.getElementById("txtUserName").value="0912369874"
+        }
+        document.getElementById("txtPasswor").onclick=()=>{
+            document.getElementById("txtPassword").value="0912369874"
+        }
+        function checkID(formElement) {
+            re = /^09\d{8}$/;
+            if (!re.test(formElement.value))
+                alert("手機格式不對");
+        }
+    </script>
 
 </body>
 

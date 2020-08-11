@@ -1,37 +1,62 @@
+
+div.bgWhitefff {
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+}
+
+h2.titleDetail {
+    color: #666;
+    font-weight:bolder;
+    background-color: #DEDEDE;
+    display: inline-block;
+}
+
 li{
     font-size: 1.2rem;
 }
+
 li>span{
-    color: blue;
+    color: #666;
+    font-weight: 600;
 }
+
 .de_container {
     padding-top: 50px;
 }
+
 .preview_content{
-    width:600px;
+    overflow:hidden;
+    margin-top: 20px;
 }
 
 .crumb_wrap {
-    height: 45px;
+    width: 200px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.075);
+    border-radius: 30px;
+    border: 0px;
+    padding: 6px 10px;
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 .crumb_wrap a {
     margin-right: 10px;
+    text-decoration: none;
+    color:#666;
+    font-weight: 600;
 }
 
-.preview_wrap {
-    border-radius: 10px;
-    height: 400px;
-    overflow: hidden;
+.crumb_wrap a:hover {
+    color: #98B716;
 }
 
-.preview_wrap img {
-    height: 400px;
-    width: 100%;
+.crumb_wrap a.selected {
+    color:#98B716;
 }
 
 .preview_detail {
-    width: 5    00px;
+    width: 50%;
 }
 
 .preview_detail h4 {
@@ -39,41 +64,110 @@ li>span{
 }
 
 .location_detail {
-    margin-top: 40px;
+    margin-top: 1.5rem;
+}
+
+.location_detail li:first-child {
+    color: #FF6A79;
+}
+
+.location_detail li:last-child {
+    text-align: center;
 }
 
 .location_detail li {
-    padding: 20px 0px;
-    border-bottom: 1px solid #cccccc;
+    padding: 15px 0px;
+    border-bottom: 1px dotted #666;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+ul.location_detail span:nth-child(even) {
+    color: #98B716;
 }
 
 .location_detail span {
-    margin-right: 40px;
+    color: rgba(102, 102, 102, 0.8);
+}
+
+h4.contentDetail {
+    color: #98B716;
+    font-weight: bolder; 
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 18px;
+}
+
+ul.program_detail>li {
+    list-style: none;
+}
+
+div.leftCircle {
+    position: relative;
+}
+
+div.leftCircle ul li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 99px;
+    position: absolute;
+    margin-top:10px ;
+    background: #93b021;
+    left: 0px;
+    list-style: disc;
 }
 
 .program_detail li {
     margin-left: 20px;
     margin-bottom: 10px;
-    list-style: disc;
 }
 
-/* .preview_choice {
-    width: 350px;
-    height: 200px;
-    margin-top: 20px;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid #cccccc;
-} */
 .preview_choice {
-    position: absolute;
     margin-left: 40px;
 }
-.preview_choice>form{
- margin-top: 30px;
+
+.preview_choice>form {
+ margin-top: 3rem;
 }
-.preview_choice>form>button{
+
+.preview_choice>form>button {
  margin:auto;
+}
+
+.preview_choice div.formTime,div.formCount {
+    margin-left:2.5%;
+}
+
+div h5[class="formTo"]{
+    display: inline-block;
+    font-weight: 600;
+    color:#666;
+}
+
+/* 共有 */
+.preview_choice button.adultCount, .preview_choice button.childCount {
+    border-radius:2px;
+    color:#ffffff;
+    font-size:18px;
+    font-weight: 600;
+    text-align:center;
+    line-height:40px;
+    width:95%;
+    height:40px;
+    margin-bottom:15px;
+    margin-left:2.5%;
+}
+
+.preview_choice button.adultCount {
+    background-color:#fba929;
+    border:1px solid #fba929;
+    margin-top:10px;
+}
+
+.preview_choice button.childCount {
+    background-color:#999999;
+    border:1px solid #999999;
 }
 
 .preview_choice h4 {
@@ -81,7 +175,7 @@ li>span{
     margin-left: 20px;
     text-align: left;
     font-size: 2rem;
-    color:blue;
+    color:#6ac13c;
 }
 
 .preview_choice span {
@@ -97,7 +191,7 @@ li>span{
     margin-left: 20px;
     border-radius: 10px;
     border: 1px solid #cccccc;
-    background-color: #26bec9;
+    background-color:#6ac13c;
     color: #ffffff;
 }
 
@@ -158,12 +252,13 @@ li>span{
     height: 400px;
     overflow: hidden;
 }
-#photoViewer.is-loading::after{
+#photoViewer.is-loading::before{
    content: url(/images/logo-w.png);
    position: absolute;
    top: 0px;
    left: 0px;
 }
+
 #photoViewer img{
     position: absolute;
     top: 50%;
@@ -171,9 +266,9 @@ li>span{
     width: 100%;
     height: 100%;
     object-fit:cover;
-    border-radius: 15px;
-   
+    border-radius: 8px;
 }
+
 .imgChoose{
     padding-left: 20px;
     width: 40vw;
@@ -188,15 +283,20 @@ a.active{
     opacity: 0.3;
 }
 /* 點選圖_結束 */
+
 /* 日曆_開始 */
 .calendar {
-    margin: auto;;
+    margin:auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 475px;
-    height: 375px;
-    background: #fff;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    height: 420px;
+    background-color: #fff;
+    box-shadow: 0 3px 15px rgba(0,0,0,.15);
+    border-radius: 8px;
+    border:1px solid rgb(221, 221, 221);
 }
+
 .title{
     text-align: center;
 }
@@ -211,7 +311,7 @@ a.active{
 .body-list ul li {
     width: 14.28%;
     height: 36px;
-    line-height: 36px;
+    line-height: 30px;
     list-style-type: none;
     display: block;
     box-sizing: border-box;
@@ -219,13 +319,16 @@ a.active{
     text-align: center;
 }
 
+.body-list ul li.darkgreyAli, #greenbox {
+    cursor: pointer;
+}
+
+.body-list ul li.lightgrey {
+    cursor: not-allowed;
+}
+
 .lightgrey {
     color: #a8a8a8;
-    /*浅灰色*/
-}
-.lightgrey:hover {
-    color: #a8a8a8;
-    background-color: royalblue;
     /*浅灰色*/
 }
 
@@ -233,20 +336,53 @@ a.active{
     color: #565656;
     /*深灰色*/
 }
-.darkgrey:hover {
-    color: #565656;
-    background-color: rgb(28, 151, 44);
-    /*深灰色*/
+
+ul li.darkgreyAli:hover {
+	color: #565656;
+	background-color:#6bc13c6b;
 }
 
-.green {
+div.title .green,.green_small {
     color: #6ac13c;
-    /*绿色*/
 }
 
-.greenbox {
-    border: 1px solid #6ac13c;
-    background: #e9f8df;
-    /*浅绿色背景*/
+#greenbox {
+    color: #6ac13c;
+    border: 1.5px solid #6ac13c;
+}
+
+a#prev,a#next{
+	margin: 0px 30px;
+	text-decoration:none;
+}
+
+a#prev img,a#next img{
+	width: 30px;
+	height: 30px;
 }
 /* 日曆_結束 */
+
+input.btn-success {
+    color: #6ac13c;
+    background-color: #fff;
+    border: 1.5px solid #6ac13c;
+    border-radius: 4px;
+    width: 120px;
+    height: 50px;
+    margin-right: 8px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+input.btn-success:hover {
+    background-color: #6ac13c;
+    border: 1.5px solid #6ac13c;
+}
+
+.formCount div.form-group {
+    clear: both;
+}
+
+.preview_choice form button.goCart:hover {
+    background-color: #2D4D26;
+}

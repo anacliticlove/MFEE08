@@ -15,8 +15,8 @@
     <div class="w">
         <div class="header">
             <div class="logo">
-                <a href="index.html">
-                    <img src="image/logo-w.png" alt="">
+                <a href="/">
+                    <img src="/images   /logo-w.png" alt="">
                 </a>
             </div>
         </div>
@@ -25,41 +25,41 @@
                 <em>我有帳號,去<a href="/users/login">登入</a></em>
             </h3>
             <div class="reg_form">
-                <form  id="form1" name="form1" method="post" action=""   action="">
+                <form id="form1" name="form1" method="post" action="" action="">
                     <ul>
-                       
+
                         <li>
                             <label for="">帳號：</label>
-                            <input type="text" class="inp"  id="txtDotphone" name="txtDotphone"  >
+                            <input type="text" class="inp" id="txtDotphone" name="txtDotphone">
                             <span class="success">
-                            <i class="success_icon"></i>
-                            密碼一致
-                        </span>
+                                <i class="success_icon"></i>
+                                密碼一致
+                            </span>
                         </li>
 
                         <li>
                             <label for="">登入密碼：</label>
-                            <input type="text" class="inp" id="txtPassword" name="txtPassword">
+                            <input type="text" class="inp" onblur="checkPwd(this)" id="txtPassword" name="txtPassword">
                             <span class="success">
-                            <i class="success_icon"></i>
-                            格式正確
-                        </span>
+                                <i class="success_icon"></i>
+                                格式正確
+                            </span>
                         </li>
-                        
+
                         <li>
                             <label for="tel">手機號碼：</label>
-                            <input type="text" class="inp" name="txtUserName" id="txtUserName">
+                            <input type="text" class="inp" onblur="checkPhon(this)" name="txtUserName" id="txtUserName">
                             <span class="error">
-                            <i class="error_icon"></i>
-                            手機號碼格式不正確,請從新輸入
-                        </span>
+                                <i class="error_icon"></i>
+                                手機號碼格式不正確,請從新輸入
+                            </span>
                         </li>
-                      
+
                         <!-- <li>
                             <label for="">簡訊驗證碼：</label>
                             <input type="text" class="inp">
                         </li> -->
-                        
+
                         <!-- <li>
                             <label for="">登入密碼：</label>
                             <input type="text" class="inp">
@@ -68,7 +68,7 @@
                             格式正確
                         </span>
                         </li> -->
-                        
+
                         <!-- <li class="safe">
                             安全程度
                             <em class="weak">弱</em>
@@ -88,12 +88,12 @@
                             <a href="#">
                                 <<用戶協議>> </a>
                         </li> -->
-                        
+
                         <li>
                             <input type="submit" value="完成註冊" class="over">
                         </li>
                     </ul>
-                    
+
                 </form>
             </div>
         </div>
@@ -102,6 +102,21 @@
             </p>
         </div>
     </div>
+    <script>
+        function checkPhon(formElement) {
+            re = /^09\d{8}$/;
+            if (!re.test(formElement.value))
+                alert("手機格式不對");
+        }
+    </script>
+
+    <script>
+        function checkPwd(formElement) {
+            re = /^[A-Za-z0-9]+$/;
+            if (!re.test(formElement.value))
+                alert("預設密碼格式不符");
+        }
+    </script>
 </body>
 
 </html>

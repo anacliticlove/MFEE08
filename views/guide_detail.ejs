@@ -14,51 +14,22 @@
 </head>
 
 <body>
-    <!-- header start -->
-    <header>
-        <!-- logo -->
-        <div class="logo">
-            <img src="/images/logo-w.png" alt="">
-            <span>- when do you trip?</span>
-        </div>
-        <!-- 搜尋欄 -->
-        <div class="search">
-            <input type="search" value="輸入城市、景點、體驗行程或活動名稱...">
-            <button>搜尋</button>
-        </div>
-        <!-- 登入/註冊 -->
-        <div class="login">
-            <a href="login.html">
-                <span>登入/註冊</span>
-            </a>
-        </div>
-        <!-- 快捷導航 -->
-        <ul class="shortcut">
-            <li>
-                <a href="location_list.html">選擇你的專屬行程</a>
-            </li>
-            <li>
-                <a href="guide_list.html">尋找你的專屬導遊</a>
-            </li>
-            <li>
-                <a href="#">購物車</a>
-            </li>
-        </ul>
-    </header>
+    <%- include mod_header -%>
     <!-- header end -->
     <!-- 詳細預覽模塊 -->
     <div class="de_container container">
         <div class="preview">
             <div class="preview_img">
-                <img src="image/add_guide4.jpg" alt="">
+                <img src="/images/guide/<%=title.memberPic%>" alt="">
             </div>
             <div class="preview_de">
-                <h3>JASMIN</h3>
+                <h3><%title.memberName%></h3>
                 <ul>
-                    <li>地區：<span>北區</span></li>
-                    <li>年齡：<span>22</span></li>
-                    <li>性別：<span>女</span></li>
-                    <li>興趣：<span>彈鋼琴、看書</span></li>
+                    <li>地區：<span><%=title.guideSide%></span></li>
+                    <li>專長：<span><%=title.guideBest%></span></li>
+                    <li>Email：<span><%=title.memberEmail%></span></li>
+                    <li>介紹：</li>
+                    <li><span><%=title.guideInfo%></span></li>
                 </ul>
             </div>
             <div class="decorate"></div>
@@ -73,8 +44,12 @@
             </ul>
         </div>
         <div class="tab_con">
-            <p class="introduce">I have a Bachelor of Science in Agribusiness Management. I was a writer in the University school magazine and I hosted school events. In high school, I won English broadcasting awards. My hobbies are playing the guitar, playing the piano,
-                singing and doing yoga. I used to read a lot of books when I had a lot of free time. I have been teaching English online for three years. I love English and I love teaching so it’s a perfect combination.</p>
+            <p class="introduce">I have a Bachelor of Science in Agribusiness Management. I was a writer in the
+                University school magazine and I hosted school events. In high school, I won English broadcasting
+                awards. My hobbies are playing the guitar, playing the piano,
+                singing and doing yoga. I used to read a lot of books when I had a lot of free time. I have been
+                teaching English online for three years. I love English and I love teaching so it’s a perfect
+                combination.</p>
         </div>
         <div class="tab_con" style="display: none">
             <div class="tab_box">
@@ -134,17 +109,17 @@
         <ul class="sc_con">
             <li>
                 <a href="javascript:;">
-                    <img src="image/老梅綠石槽景觀.jpg" alt="">
-                    <em>老梅綠石槽景觀</em>
+                    <img src="/images/trip/<%=title.tripPic1%>" alt="">
+                    <em><%=title.tripName%></em>
                 </a>
             </li>
-            <li> <span>09:00-12:00</span> </li>
-            <li> <span>新北市</span> </li>
-            <li> <span>10人</span></li>
+            <li> <span><%=title.tripTime%></span> </li>
+            <li> <span><%=title.tirpCity%></span> </li>
+            <li> <span><%=title.peoMost%></span></li>
             <li>
-                <p>谷關除了洗溫泉浴、享受鱒魚美食、森林浴外，還有谷關溫泉公園、捎來步道為悠遊賞景的好去處。</p>
+                <p><%=title.tripIntroduce%></p>
             </li>
-            <button>點我詳情</button>
+            <a href="/trip/location_detail?id=<%=title.tripId-1%>"><button> 點我詳情</button></a>
         </ul>
     </div>
     <!-- 詳細頁內容 end -->

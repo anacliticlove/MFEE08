@@ -29,6 +29,7 @@
 
 .cartCheck {
   padding-top: 55px;
+ 
 }
 
 [type="checkbox"] {
@@ -49,7 +50,6 @@
 /* 購物車內容 */
 
 .cartBody {
-  height: 150px;
   background-color: white;
   display: flex;
   margin-right: 0px;
@@ -57,6 +57,10 @@
   text-align: center;
   border: 1px solid white;
   border-bottom-color: gray;
+  
+}
+.cartBody>div{
+  border-bottom: 1px black solid;
 }
 
 /* 購物車內容_照片 */

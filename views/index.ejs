@@ -21,50 +21,8 @@
 </head>
 
 <body>
-
-  <!-- header start -->
-  <header class="navbar">
-    <!-- logo -->
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo-w.png" alt="" /></a>
-      <span>- when do you trip?</span>
-    </div>
-    <!-- 搜尋欄 -->
-    <div class="search">
-      <input type="search" value="輸入城市、景點、體驗行程或活動名稱..." />
-      <button>搜尋</button>
-    </div>
-    <!-- 登入/註冊 -->
-    <div class="login">
-
-      <% if( userName == "Guest"){ %>
-
-      <a href="/users/login"><span>登入</span></a>
-
-      <a href="/users/register"><span>註冊</span></a>
-
-      <% }else { %>
-
-      <a href="/users/logout"><span>登出</span></a>
-      <a href="#"><span>各人頁</span></a>
-      <% } %>
-      <!-- <a ><span>Welcome <%=  userName %></span></a> -->
-      </div>
-      <!-- 快捷導航 -->
-      <ul class="shortcut">
-        <li>
-          <a href="/trip">選擇你的專屬行程</a>
-        </li>
-        <li>
-          <a href="/guide">尋找你的專屬導遊</a>
-        </li>
-        <li>
-          <a href="/users/shopcart">購物車</a>
-        </li>
-      </ul>
-  </header>
-  <!-- header end -->
+ 
+  <%- include mod_header -%>
 
 
   <!-- 內文區 -->
@@ -79,7 +37,7 @@
   <!-- video 影片區 -->
   <div class="container-fluid video-Wrap">
     <!-- 解決 video 影片會自動播放的問題 : https://dometi.com.tw/blog/html5-video-autoplay/ -->
-    <video id="player" width="100%" height="100%" loop="true" autoplay="autoplay" muted="true">
+    <video id="player" width="100%" height="600px" loop="true" autoplay="autoplay" muted="true">
       <source src="/video/Pexels Videos 1823079.mp4" type="video/mp4">
     </video>
   </div>

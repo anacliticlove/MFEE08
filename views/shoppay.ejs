@@ -28,39 +28,8 @@
 
 <body>
 
-    <!-- header start -->
-    <header class="navbar">
-        <!-- logo -->
-        <div class="logo">
-            <a href="/">
-                <img src="/images/logo-w.png" alt="" /></a>
-            <span>- when do you trip?</span>
-        </div>
-        <!-- 搜尋欄 -->
-        <div class="search">
-            <input type="search" value="輸入城市、景點、體驗行程或活動名稱..." />
-            <button>搜尋</button>
-        </div>
-        <!-- 登入/註冊 -->
-        <div class="login">
-            <a href="#">
-                <span>登入/註冊</span>
-            </a>
-        </div>
-        <!-- 快捷導航 -->
-        <ul class="shortcut">
-            <li>
-                <a href="/trip">選擇你的專屬行程</a>
-            </li>
-            <li>
-                <a href="/guide">尋找你的專屬導遊</a>
-            </li>
-            <li>
-                <a href="/users/shopcart">購物車</a>
-            </li>
-        </ul>
-    </header>
-    <!-- header end -->
+    <%- include mod_header -%>
+    
     <!-- ## navbar 導覽列 -->
     <br>
     <br>
@@ -311,9 +280,9 @@
     <div class="container">
         <h3>最多人瀏覽</h3>
     </div>
-    <div class="owl-carousel owl-theme container">
+    <div class="owl-carousel owl-theme">
         <div class="item">
-            <h5>海洋牧場體驗</h5>
+            <h5>溪頭走走</h5>
             <div>
                 <img class="img-fluid" src="/images/trip/trip2_1.jpg" alt="">
             </div>
@@ -325,7 +294,7 @@
             <p><span>TWD</span>&emsp;<span>360</span></p>
         </div>
         <div class="item">
-            <h5>海洋牧場體驗</h5>
+            <h5>故宮南院走走</h5>
             <div>
                 <img class="img-fluid" src="/images/trip/trip3_1.jpg" alt="">
             </div>
@@ -337,7 +306,7 @@
             <p><span>TWD</span>&emsp;<span>360</span></p>
         </div>
         <div class="item">
-            <h5>海洋牧場體驗</h5>
+            <h5>南方澳平台</h5>
             <div>
                 <img class="img-fluid" src="/images/trip/trip4_1.jpg" alt="">
             </div>
@@ -349,7 +318,7 @@
             <p><span>TWD</span>&emsp;<span>360</span></p>
         </div>
         <div class="item">
-            <h5>海洋牧場體驗</h5>
+            <h5>正濱漁港</h5>
             <div>
                 <img class="img-fluid" src="/images/trip/trip5_1.jpg" alt="">
             </div>
@@ -361,7 +330,8 @@
             <p><span>TWD</span>&emsp;<span>360</span></p>
         </div>
         <div class="item">
-            <h5>海洋牧場體驗</h5>
+            <h5>	
+                谷關風景特定區</h5>
             <div>
                 <img class="img-fluid" src="/images/trip/trip6_1.jpg" alt="">
             </div>
@@ -373,7 +343,7 @@
             <p><span>TWD</span>&emsp;<span>360</span></p>
         </div>
         <div class="item">
-            <h5>海洋牧場體驗</h5>
+            <h5>鳳儀書院</h5>
             <div>
                 <img class="img-fluid" src="/images/trip/trip7_1.jpg" alt="">
             </div>
@@ -385,7 +355,7 @@
             <p><span>TWD</span>&emsp;<span>360</span></p>
         </div>
         <div class="item">
-            <h5>海洋牧場體驗</h5>
+            <h5>台灣太魯閣</h5>
             <div>
                 <img class="img-fluid" src="/images/trip/trip8_1.jpg" alt="">
             </div>
@@ -398,7 +368,7 @@
         </div>
 
     </div>
-    </div>
+</div>
     <!-- 輪播商品_結束 -->
     <!-- footer start -->
     <div class="footer">

@@ -35,10 +35,12 @@ $(function () {
 });
 //取每個行程的id
 function redirect(e) {
-  // alert(e);
-  // currentIndex = e;
   console.log(josnData);
   window.location.replace('/trip/location_detail?id='+(e-1));
+}
+function change(e) {
+  console.log(josnData);
+  window.location.replace('/guide/guide_detail?id='+(e-1));
 }
 
 //分頁製作
@@ -93,7 +95,7 @@ function displayData(data) {
   data.forEach((item) => {
     if (x === "guide") {
       str += `<a href=""></a>
-      <div onclick="redirect(${
+      <div onclick="change(${
         item.memberId
       })"  class="col-md-3 py-2 px-2"><div class="card"><div class="card bg-dark text-white text-left">
         <img class="card-img-top bg-cover" height="155px" src="/images/guide/${
