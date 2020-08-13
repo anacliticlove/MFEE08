@@ -103,10 +103,10 @@
                               <h1 class="green" id="calendar-title">Month</h1>
                               <h2 class="green_small my-2" id="calendar-year">Year</h2>
                                 <a href="" id="prev">
-                                  <img src="/images/pre.png">
+                                  <img src="/images/date_pre.png">
                                 </a>
                                 <a href="" id="next">
-                                  <img src="/images/next.png">
+                                  <img src="/images/date_next.png">
                                 </a>
                             </div>
                             <div class="body">
@@ -131,21 +131,21 @@
                         <form method="POST" action="" class="mt-5">
                             <div class="formTime">
                                 <h5 class="formTo">日期 : &nbsp;</h5>
-                                    <input type="text" class="btn btn-success" name="tripDate" value="" id="dateResult" disabled >
-                                    <input hidden class="btn btn-success" name="tripDate" value="" id="tripDate">
+                                    <input type="text" class="btn-success" name="tripDate" value="" id="dateResult" disabled >
+                                    <input hidden class="btn-success" name="tripDate" value="" id="tripDate">
                                     &nbsp;&nbsp;&nbsp;
                                 <h5 class="formTo">場次 : &nbsp;</h5>
-                                    <select class="btn btn-success" name="tripTime" ><option value="<%=title.tripTime%>"><%=title.tripTime%></option> </select>
+                                    <select class="btn-success" name="tripTime" ><option value="<%=title.tripTime%>"><%=title.tripTime%></option> </select>
                             </div>
                             <div class="formCount gm mt-3">
-                                <h5 class="formTo">人數 : &nbsp;</h5>
+                                <h5 class="formTo">語言 : &nbsp;</h5>
                                     <!-- 隱藏欄位 - 價格-->
                                     <span class="price" style="display:none;"><%=title.tripPrice%></span>
                                     <input type="hidden" name="memberId" value="<%=userId%>">
                                     <input type="hidden" name="preTripName" value="<%=title.tripName%>">
                                     <input type="hidden" name="preGuideId" value="<%=title.guideId%>">
                                     <input type="hidden" name="preTripId" value="<%=title.tripId%>">
-                                 <select class="btn btn-success" name="orderLan" >
+                                 <select class="btn-success" name="orderLan" >
                                      <option value="國語">國語</option>
                                      <option value="英語">英語</option>
                                      <option value="台語">台語</option>

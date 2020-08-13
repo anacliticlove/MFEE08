@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>問導遊 - 尋找私人導遊的專屬平台</title>
@@ -18,6 +17,8 @@
   <script src="/javascripts/popper.min.js"></script>
   <script src="/javascripts/bootstrap.min.js"></script>
   <script src="/javascripts/trip.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
 </head>
 
 <body>
@@ -37,7 +38,7 @@
   <!-- video 影片區 -->
   <div class="container-fluid video-Wrap">
     <!-- 解決 video 影片會自動播放的問題 : https://dometi.com.tw/blog/html5-video-autoplay/ -->
-    <video id="player" width="100%" height="600px" loop="true" autoplay="autoplay" muted="true">
+    <video id="player" width="100%" height="100%" loop="true" autoplay="autoplay" muted="true">
       <source src="/video/Pexels Videos 1823079.mp4" type="video/mp4">
     </video>
   </div>
@@ -215,104 +216,228 @@
         <h5 class="addtrip mb-4">
           導遊 :
         </h5>
-        <!-- 新增 - 導遊 card -->
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" id="effects">
-          <!-- card_1 -->
-          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <!-- New -->
-            <div class="New">
-              <img class="img-fluid" src="/images/new.png" alt="">
-            </div>
-            <a href="">
-              <div class="card text-dark">
-                <img src="/images/add_guide1.jpg" class="addGuideImg" alt="...">
-                <div class="card-body">
-                  <h5 class="tripHeadLine card-title">張曉明</h5>
-                  <p class="card-text">地區: 中部</p>
-                  <p class="card-text">專長類別: 古蹟</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">新增日期 : 2020/07/31</small>
-                </div>
+        <!-- 圖片輪播 - carousel -->
+        <div id="carouselExample" class="carousel slide pt-2" data-ride="carousel" data-interval="false">
+          <!-- 新增 - 導遊 card -->
+          <div class="carousel-inner w-100 mx-auto row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 pt-2" role="listbox" id="effects">
+            <!-- card_1 -->
+            <div class="carousel-item col-lg-3 col-md-4 col-sm-6 mb-4 active">
+              <!-- ---------------------------- -->
+              <div class="panel panel-default">
+                <div class="panel-thumbnail">
+              <!-- New -->
+              <div class="New">
+                <img class="img-fluid" src="/images/new.png" alt="">
               </div>
-            </a>
-          </div>
-          <!-- ## card_1 -->
+              <a href="" title="image 1" class="thumb">
+                <div class="card text-dark">
+                  <img src="/images/add_guide1.jpg" class="addGuideImg" alt="..." >
+                  <div class="card-body">
+                    <h5 class="tripHeadLine card-title">張曉明</h5>
+                    <p class="card-text">地區: 中部</p>
+                    <p class="card-text">專長類別: 古蹟</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">新增日期 : 2020/07/31</small>
+                  </div>
+                </div>
+              </a>
 
-          <!-- card_2 -->
-          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <!-- New -->
-            <div class="New">
-              <img class="img-fluid" src="/images/new1.png" alt="">
+             </div>
+             </div>
+             <!-- ---------------------------- -->
             </div>
-            <a href="">
-              <div class="card text-dark">
-                <img src="/images/add_guide2.jpg" class="addGuideImg" alt="...">
-                <div class="card-body">
-                  <h5 class="tripHeadLine card-title">艾茂紋</h5>
-                  <p class="card-text">地區: 中部</p>
-                  <p class="card-text">專長類別: 風景</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">新增日期 : 2020/07/31</small>
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- ## card_2 -->
+            <!-- ## card_1 -->
 
-          <!-- card_3 -->
-          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <!-- New -->
-            <div class="New">
-              <img class="img-fluid" src="/images/new.png" alt="">
-            </div>
-            <a href="">
-              <div class="card text-dark">
-                <img src="/images/add_guide3.jpg" class="addGuideImg" alt="...">
-                <div class="card-body">
-                  <h5 class="tripHeadLine card-title">王昱宣</h5>
-                  <p class="card-text">地區: 南部</p>
-                  <p class="card-text">專長類別: 藝術</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">新增日期 : 2020/07/31</small>
-                </div>
+            <!-- card_2 -->
+            <div class="carousel-item col-lg-3 col-md-4 col-sm-6 mb-4">
+              <!-- ---------- -->
+              <div class="panel panel-default">
+                <div class="panel-thumbnail">
+              <!-- New -->
+              <div class="New">
+                <img class="img-fluid" src="/images/new1.png" alt="">
               </div>
-            </a>
-          </div>
-          <!-- ## card_3 -->
+              <a href="" title="image 3" class="thumb">
+                <div class="card text-dark">
+                  <img src="/images/add_guide2.jpg" class="addGuideImg" alt="...">
+                  <div class="card-body">
+                    <h5 class="tripHeadLine card-title">艾茂紋</h5>
+                    <p class="card-text">地區: 中部</p>
+                    <p class="card-text">專長類別: 風景</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">新增日期 : 2020/07/31</small>
+                  </div>
+                </div>
+              </a>
 
-          <!-- card_4 -->
-          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <!-- New -->
-            <div class="New">
-              <img class="img-fluid" src="/images/new1.png" alt="">
             </div>
-            <a href="">
-              <div class="card text-dark">
-                <img src="/images/add_guide4.jpg" class="addGuideImg" alt="...">
-                <div class="card-body">
-                  <h5 class="tripHeadLine card-title">宋佩樺</h5>
-                  <p class="card-text">地區: 花東</p>
-                  <p class="card-text">專長類別: 人文</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">新增日期 : 2020/07/31</small>
-                </div>
+            </div>
+              <!-- ---------- -->
+            </div>
+            <!-- ## card_2 -->
+
+            <!-- card_3 -->
+            <div class="carousel-item col-lg-3 col-md-4 col-sm-6 mb-4">
+              <!-- New -->
+              <div class="New">
+                <img class="img-fluid" src="/images/new.png" alt="">
               </div>
-            </a>
+              <a href="" title="image 4" class="thumb">
+                <div class="card text-dark">
+                  <img src="/images/add_guide3.jpg" class="addGuideImg" alt="...">
+                  <div class="card-body">
+                    <h5 class="tripHeadLine card-title">王昱宣</h5>
+                    <p class="card-text">地區: 南部</p>
+                    <p class="card-text">專長類別: 藝術</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">新增日期 : 2020/07/31</small>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- ## card_3 -->
+
+            <!-- card_4 -->
+            <div class="carousel-item col-lg-3 col-md-4 col-sm-6 mb-4">
+              <!-- New -->
+              <div class="New">
+                <img class="img-fluid" src="/images/new1.png" alt="">
+              </div>
+              <a href="" title="image 5" class="thumb">
+                <div class="card text-dark">
+                  <img src="/images/add_guide4.jpg" class="addGuideImg" alt="...">
+                  <div class="card-body">
+                    <h5 class="tripHeadLine card-title">宋佩樺</h5>
+                    <p class="card-text">地區: 花東</p>
+                    <p class="card-text">專長類別: 人文</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">新增日期 : 2020/07/31</small>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- ## card_4 -->
+
+            <!-- card_5 -->
+            <div class="carousel-item col-lg-3 col-md-4 col-sm-6 mb-4">
+              <!-- New -->
+              <div class="New">
+                <img class="img-fluid" src="/images/new.png" alt="">
+              </div>
+              <a href="" title="image 6" class="thumb">
+                <div class="card text-dark">
+                  <img src="/images/add_guide5.jpg" class="addGuideImg" alt="...">
+                  <div class="card-body">
+                    <h5 class="tripHeadLine card-title">王昱宣</h5>
+                    <p class="card-text">地區: 南部</p>
+                    <p class="card-text">專長類別: 藝術</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">新增日期 : 2020/07/31</small>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- ## card_5 -->
+
+            <!-- card_6 -->
+            <div class="carousel-item col-lg-3 col-md-4 col-sm-6 mb-4">
+              <!-- New -->
+              <div class="New">
+                <img class="img-fluid" src="/images/new1.png" alt="">
+              </div>
+              <a href="" title="image 7" class="thumb">
+                <div class="card text-dark">
+                  <img src="/images/add_guide6.jpg" class="addGuideImg" alt="...">
+                  <div class="card-body">
+                    <h5 class="tripHeadLine card-title">宋佩樺</h5>
+                    <p class="card-text">地區: 花東</p>
+                    <p class="card-text">專長類別: 人文</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">新增日期 : 2020/07/31</small>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- ## card_6 -->
+
+            <!-- card_7 -->
+            <div class="carousel-item col-lg-3 col-md-4 col-sm-6 mb-4">
+              <!-- New -->
+              <div class="New">
+                <img class="img-fluid" src="/images/new.png" alt="">
+              </div>
+              <a href="" title="image 8" class="thumb">
+                <div class="card text-dark">
+                  <img src="/images/add_guide7.jpg" class="addGuideImg" alt="...">
+                  <div class="card-body">
+                    <h5 class="tripHeadLine card-title">王昱宣</h5>
+                    <p class="card-text">地區: 南部</p>
+                    <p class="card-text">專長類別: 藝術</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">新增日期 : 2020/07/31</small>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- ## card_7 -->
+
+            <!-- card_8 -->
+            <div class="carousel-item col-lg-3 col-md-4 col-sm-6 mb-4">
+              <!-- New -->
+              <div class="New">
+                <img class="img-fluid" src="/images/new1.png" alt="">
+              </div>
+              <a href="" title="image 2" class="thumb">
+                <div class="card text-dark panel panel-default">
+                  <img src="/images/add_guide8.jpg" class="addGuideImg" alt="...">
+                  <div class="card-body">
+                    <h5 class="tripHeadLine card-title">宋佩樺</h5>
+                    <p class="card-text">地區: 花東</p>
+                    <p class="card-text">專長類別: 人文</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">新增日期 : 2020/07/31</small>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- ## card_8 -->
           </div>
-          <!-- ## card_4 -->
+          <!-- ## 新增 - 導遊 card -->
+
+          <!-- <div class="arrowBtn" style="position: relative;"> -->
+          <!-- left arrow --> 
+          <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+            <button class="preArrow btn" role="button">
+            <img src="/images/pre.png" alt="" class="">
+          </button>
+            <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+          </a>
+          <!-- right arrow -->
+          <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+            <button class="nextArrow btn" role="button">
+            <img src="/images/next.png" alt="" class="">
+            <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+          </button>
+          </a>
+        <!-- </div> -->
+
         </div>
-        <!-- ## 新增 - 導遊 card -->
+        <!-- ## 圖片輪播 - carousel -->
 
         <!-- three button -->
-        <div class="threeBtn">
+        <!-- <div class="threeBtn">
           <button class="btnGro selected"></button>
           <button class="btnGro"></button>
           <button class="btnGro"></button>
-        </div>
+        </div> -->
         <!-- ## three button -->
 
       </div>
@@ -583,7 +708,7 @@
 
 
   <!-- 尋找適合的導遊 -->
-  <div class="bgGray" id="bgFitGuide">
+  <div class="bgSuitGray_2" id="bgFitGuide">
     <div class="bgFitGuideImg">
       <img src="/images/banner-image_07-2.png" alt="" style="overflow: hidden; width: 380px; ">
     </div>
@@ -757,6 +882,7 @@
             <label for="Textarea">訊息內容 :</label>
             <textarea class="form-control" id="Textarea" rows="4" placeholder="請說明你的問題..."></textarea>
           </div>
+          <input type="submit" class="btn btn-success" value="送出">
         </form>
         <!-- ## Form -->
       </div>

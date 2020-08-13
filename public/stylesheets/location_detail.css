@@ -362,7 +362,7 @@ a#prev img,a#next img{
 }
 /* 日曆_結束 */
 
-input.btn-success {
+div.formTime input.btn-success, div.formTime select.btn-success, div.formCount select.btn-success {
     color: #6ac13c;
     background-color: #fff;
     border: 1.5px solid #6ac13c;
@@ -372,11 +372,25 @@ input.btn-success {
     margin-right: 8px;
     font-size: 20px;
     font-weight: 500;
+    text-align: center;
 }
 
-input.btn-success:hover {
+div.formTime input.btn-success:hover {
     background-color: #6ac13c;
     border: 1.5px solid #6ac13c;
+    color: #fff;
+}
+
+div.formTime select.btn-success:hover {
+    background-color: #6ac13c;
+    border: 1.5px solid #6ac13c;
+    color: #fff;
+}
+
+div.formCount select.btn-success:hover {
+    background-color: #6ac13c;
+    border: 1.5px solid #6ac13c;
+    color: #fff;
 }
 
 .formCount div.form-group {

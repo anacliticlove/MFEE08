@@ -29,7 +29,7 @@ body {
 header {
     position: relative;
     position: fixed;
-    z-index: 99;
+    z-index: 1000;
     height: 100px;
     width: 100%!important;
     background-color: #ffffff;
