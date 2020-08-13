@@ -67,14 +67,17 @@
 
 .cartBodyPhoto {
   height: 150px;
-  padding-top: 10px;
-  
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .cartBodyPhoto > img {
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
   margin: auto;
-margin-top: 20px;
+  object-fit: cover;
+
 }
 
 /* 購物車內容_標題 */
@@ -94,6 +97,9 @@ margin-top: 20px;
   margin-left: 0px;
   text-align: center;
   padding-top: 20px;
+}
+.deleteItem{
+  cursor: pointer;
 }
 
 /* 購物車_結束 */

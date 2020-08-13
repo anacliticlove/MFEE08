@@ -33,6 +33,11 @@ $(function () {
     });
   }
 });
+function findSide(){
+alert("123");
+}
+
+
 //取每個行程的id
 function redirect(e) {
   console.log(josnData);

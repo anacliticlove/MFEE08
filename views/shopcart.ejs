@@ -60,43 +60,19 @@
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-2">商品名稱</div>
-                <div class="col-2">時間</div>
-                <div class="col-2" style="padding-right: 30px;">人數</div>
-                <div class="col-1" style="padding-right: 30px;">價錢</div>
+                <div class="col-2" style="text-align: center;">時間</div>
+                <div class="col-2" style="text-align: center;">人數</div>
+                <div class="col-1" style="text-align: center;">價錢</div>
             </div>
 
         </div>
         <!-- 購物車內容 -->
         <!-- 第一筆選項開始 -->
         <form method="GET" action="/users/shoppay">
-            <div id="cartBody" class="cartBody row">
-                <div class="col-1 cartCheck" style="">
-                    <input class="" type="checkbox" name="shopItem" id="">
-                </div>
-                <div class="col-2 cartBodyPhoto" style="">
+            <ul id="cartBody" class="cartBody row">
+               
 
-                    <img class="img-fluid" src="/images/trip/trip2_1.jpg" alt="I am " style="">
-                </div>
-                <div class="col-2 cartBodyTitle" style="">
-                    <a href="#">
-                        <h6 class="mt">台灣南投｜溪頭走走</h6>
-                    </a>
-                </div>
-                <div class="col-2" style="">
-                    <p class="mt">2020-08-06</p>
-                </div>
-                <div class="col-2 " style="">
-                    <p class="mt">成人 x 1</p>
-                </div>
-                <div class="col-1" style="">
-                    <h6 class="mt">TWD 601</h6>
-                </div>
-                <div class="col-2 " style="">
-                    <a href=""><img class="mt" src="/images/icon/SVG/219-heart - 複製.svg" alt=""></a>&emsp;
-                    <a href=""><img class="mt" src="/images/icon/SVG/173-bin.svg" alt=""></a>
-                </div>
-
-            </div>
+            </ul>
 
             <!-- 購物車結帳 -->
             <div class="cartFooter row">
@@ -106,10 +82,10 @@
                     <label for="checkAll">&emsp;全部選擇/刪除項目</label>
 
                 </div>
-                <div class="col-5" style="">
+                <div class="col-5" style="text-align: right;"><h3>TWD</h3>
                 </div>
                 <div class="col-2" style="">
-                    <h4 id="myPrice">TWD</h4>
+                    <h3 id="myPrice"></h3>
                     <input id="totalPrice" type="hidden" name="totalPrice" value="">
                 </div>
                 <div class="col-2 " style="">

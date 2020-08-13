@@ -1,40 +1,66 @@
-$(document).ready(function(){
-  $("#checkAll").click(function(){
-   if($("#checkAll").prop("checked")){//如果全選按鈕有被選擇的話（被選擇是true）
-    $("input[name='shopItem']").prop("checked",true);//把所有的核取方框的property都變成勾選
-   }else{
-    $("input[name='shopItem']").prop("checked",false);//把所有的核取方框的property都取消勾選
-   }
-  })
- })
+$(document).ready(function () {
+  $("#checkAll").click(function () {
+    if ($("#checkAll").prop("checked")) {
+      //如果全選按鈕有被選擇的話（被選擇是true）
+      $("input[name='shopItem']").prop("checked", true); //把所有的核取方框的property都變成勾選
+    } else {
+      $("input[name='shopItem']").prop("checked", false); //把所有的核取方框的property都取消勾選
+    }
+  });
+}); 
 
 $(function () {
   $.get("/guide/shopcart", function (e) {
     cartList = JSON.parse(e);
-    console.log(typeof(cartList));
+    reNew();
+  });
+  function reNew() {
     var cUserId = $("#checkUser").val();
     console.log(cUserId);
     results = [];
     cartList.forEach((memberIdd) => {
-      if ((memberIdd.memberId == cUserId)) {
+      if (memberIdd.memberId == cUserId) {
         results.push(memberIdd);
       }
     });
-    console.log(typeof(results));
-  }).then(() => {
+    console.log(results.length);
     myCart();
     myPrice();
-  });
+    $(".deleteItem").click(function () {
+      var myConfirm=confirm("確定要刪除?")
+      if (myConfirm == false){
+        return
+      }
+      var i = $(this).closest("li").index();
+      console.log(results[i]);
+      $.ajax({
+        type: "delete",
+        url: "/guide/shopcart",
+        data: results[i],
+      }).then(function (e) {
+        $.get("/guide/shopcart", function (e) {
+          cartList = JSON.parse(e);
+          reNew();
+        });
+      });
+    });
+  }
   function myCart() {
     $("#cartBody").empty();
-    // console.log(results);
+    console.log(results);
     // console.log(cartList);
-    $.each(results, function (key, obj) {
-      $("#cartBody").append(`<div class="col-1 cartCheck" style="">
+    if (results.length == 0) {
+      alert("目前沒有商品");
+      location.replace("/")
+    } else {
+      $.each(results, function (index, obj) {
+        $(
+          "#cartBody"
+        ).append(`<li><div class="row"><div class="col-1 cartCheck" style="">
             <input class="" type="checkbox" name="shopItem" id="">
         </div>
         <div class="col-2 cartBodyPhoto" style="">
-            <img class="img-fluid" src="/images/trip/${obj.tripPic1}" alt="I am " style="">
+            <img class="" src="/images/trip/${obj.tripPic1}" alt="I am " style="">
         </div>
         <div class="col-2 cartBodyTitle" style="">
             <a href="#">
@@ -52,13 +78,14 @@ $(function () {
             <h6 class="mt">TWD ${obj.preTripPrice}</h6>
         </div>
         <div class="col-2 " style="">
-            <a href=""><img class="mt" src="/images/icon/SVG/219-heart - 複製.svg" alt=""></a>&emsp;
-            <a href=""><img class="mt" src="/images/icon/SVG/173-bin.svg" alt=""></a>
-        </div>
+            <img  class="mt deleteItem" src="/images/icon/PNG/64px/173-bin.png" alt=""  >
+        </div></div></li>
         `);
-    });
+      });
+    }
   }
   function myPrice() {
+    $("#myPrice").empty();
     var str = 0;
     $.each(results, function (key, obj) {
       str += parseInt(obj.preTripPrice);
@@ -66,4 +93,3 @@ $(function () {
     $("#myPrice").append("&emsp;" + str);
   }
 });
-
