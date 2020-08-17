@@ -59,7 +59,7 @@ $(document).ready(function(){
       var getPosition = $(document).scrollTop();
         
       // outerHeight()  : 取得匹配元素的外部高度
-      var navbarHeight = $('nav').outerHeight();
+      var navbarHeight = $('header').outerHeight();
       // alert( getPosition);
         
       // 網頁/視窗事件: scroll() : 當拖曳瀏覽器捲動軸時觸發
@@ -68,16 +68,16 @@ $(document).ready(function(){
         
         // 指滾輪滾到 navbar 時才會顯示 navbar
         if (windowPosition > navbarHeight){
-          $('nav').addClass('hiddenDiv');
+          $('header').addClass('hiddenDiv');
           }else{
-            $('nav').removeClass('hiddenDiv');
+            $('header').removeClass('hiddenDiv');
           }
           
         // 指滾輪往下滑時隱藏 navbar ， 往上滑時顯示 navbar  
         if (windowPosition > getPosition){
-          $('nav').removeClass('displayDiv');
+          $('header').removeClass('displayDiv');
           }else{
-            $('nav').addClass('displayDiv');
+            $('header').addClass('displayDiv');
           }				
         getPosition = $(document).scrollTop();	
       });

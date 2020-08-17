@@ -1,4 +1,7 @@
 var x = $(".sss").val();
+var y = $("#ssa").val();
+// console.log(y);
+
 $(function () {
   //
   $("#aass").animate(
@@ -8,20 +11,88 @@ $(function () {
     },
     1000
   );
+
   // 行程列表資料庫_開始
-  if (x === "trip") {
-    $.get("/trip/tripList", function (e) {
-      tripList = JSON.parse(e);
-      pagination(tripList, 1);
-      josnData = tripList;
-      console.log(josnData[0].memberId);
-      return josnData;
-    }).then(() => {
-      $(".guide").empty();
-    });
-  }
+  if(x === "trip"){ 
+    if (y == "where" || y == "") {
+      $.get("/trip/tripList", function (e) {
+        tripList = JSON.parse(e);
+        pagination(tripList, 1);
+        josnData = tripList;
+        console.log(josnData[0].memberId);
+        return josnData;
+      }).then(() => {
+        $(".guide").empty();
+      });
+      $(".btnAll").attr("class","selected");
+    }else { 
+      switch (y) {
+          case "北部":
+            $.get("/trip/tripList/areaNorth", function (e) {
+              tripList_North = JSON.parse(e);
+              pagination(tripList_North, 1);
+              josnData = tripList_North;
+              console.log(josnData[0].memberId);
+              return josnData;
+            }).then(() => {
+              $(".guide").empty();
+            });
+            $(".btnNorth").attr("class","selected");
+            break;
+          case "中部":
+            $.get("/trip/tripList/areaMidst", function (e) {
+              tripList_Midst = JSON.parse(e);
+              pagination(tripList_Midst, 1);
+              josnData = tripList_Midst;
+              console.log(josnData[0].memberId);
+              return josnData;
+            }).then(() => {
+              $(".guide").empty();
+            });
+            $(".btnMidst").attr("class","selected");
+              break;
+          case "南部":
+            $.get("/trip/tripList/areaSouth", function (e) {
+              tripList_South = JSON.parse(e);
+              pagination(tripList_South, 1);
+              josnData = tripList_South;
+              console.log(josnData[0].memberId);
+              return josnData;
+            }).then(() => {
+              $(".guide").empty();
+            });
+            $(".btnSouth").attr("class","selected");
+              break;
+          case "東部":
+            $.get("/trip/tripList/areaEast", function (e) {
+              tripList_East = JSON.parse(e);
+              pagination(tripList_East, 1);
+              josnData = tripList_East;
+              console.log(josnData[0].memberId);
+              return josnData;
+            }).then(() => {
+              $(".guide").empty();
+            });
+            $(".btnEast").attr("class","selected");
+              break;
+          default:
+            $.get("/trip/tripList/areaIslandsArea", function (e) {
+              tripList_IslandsArea = JSON.parse(e);
+              pagination(tripList_IslandsArea, 1);
+              josnData = tripList_IslandsArea;
+              console.log(josnData[0].memberId);
+              return josnData;
+            }).then(() => {
+              $(".guide").empty();
+            });
+            $(".btnIslandsArea").attr("class","selected");
+              break;
+      };
+    };
+
   // 導遊資料庫_開始
-  if (x === "guide") {
+  }else if(x === "guide") {
+    if (y == "where" || y == "") { 
     $.get("/guide/memberList", function (e) {
       guideList = JSON.parse(e);
       pagination(guideList, 1);
@@ -31,21 +102,106 @@ $(function () {
     }).then(() => {
       $(".guide").empty();
     });
-  }
+    $(".btnAll").attr("class","selected");
+    }else {
+      switch(y) {
+          case "北部":
+            $.get("/trip/tripList/areaNorthGuide", function (e) {
+              guideList_North = JSON.parse(e);
+              pagination(guideList_North, 1);
+              josnData = guideList_North;
+              console.log(josnData[0].memberId);
+              return josnData;
+            }).then(() => {
+              $(".guide").empty();
+            });
+            $(".btnNorth").attr("class","selected");
+              break;
+          case "中部":
+            $.get("/trip/tripList/areaMidstGuide", function (e) {
+              guideList_Midst = JSON.parse(e);
+              pagination(guideList_Midst, 1);
+              josnData = guideList_Midst;
+              console.log(josnData[0].memberId);
+              return josnData;
+            }).then(() => {
+              $(".guide").empty();
+            });
+            $(".btnMidst").attr("class","selected");
+              break;
+          case "南部":
+            $.get("/trip/tripList/areaSouthGuide", function (e) {
+              guideList_South = JSON.parse(e);
+              pagination(guideList_South, 1);
+              josnData = guideList_South;
+              console.log(josnData[0].memberId);
+              return josnData;
+            }).then(() => {
+              $(".guide").empty();
+            });
+            $(".btnSouth").attr("class","selected");
+              break;
+          case "東部":
+            $.get("/trip/tripList/areaEastGuide", function (e) {
+              guideList_East = JSON.parse(e);
+              pagination(guideList_East, 1);
+              josnData = guideList_East;
+              console.log(josnData[0].memberId);
+              return josnData;
+            }).then(() => {
+              $(".guide").empty();
+            });
+            $(".btnEast").attr("class","selected");
+              break;
+          default:
+            $.get("/trip/tripList/areaIslandsAreaGuide", function (e) {
+              guideList_IslandsArea = JSON.parse(e);
+              pagination(guideList_IslandsArea, 1);
+              josnData = guideList_IslandsArea;
+              console.log(josnData[0].memberId);
+              return josnData;
+            }).then(() => {
+              $(".guide").empty();
+            });
+            $(".btnIslandsArea").attr("class","selected");
+              break;
+      };
+    };
+  };
 });
-function findSide(){
-alert("123");
-}
 
+// 上面按鈕點擊事件
+function findSide(button) {
+  let inDomButton = document.querySelectorAll('button');
+  for(let i = 0;i<inDomButton.length;i++){
+    inDomButton[i].style.setProperty("background-color", "#fff");
+    inDomButton[i].style.setProperty("color", "#666");
+  }
+  button.style.setProperty("background-color", "#6ac13c");
+  button.style.setProperty("color", "#fff");
+  // alert("123");
+  // if (x === "guide") {
+  //   $.get("/guide/memberList", function (e) {
+  //     guideList = JSON.parse(e);
+  //   });
+  //   findSide1 = guideList.map((item) => Object.values(item)[2]);
+  // }
+  // if (x === "trip") {
+  //   $.get("/trip/tripList", function (e) {
+  //     tripList = JSON.parse(e);
+
+  //   });
+  // }
+};
 
 //取每個行程的id
 function redirect(e) {
   console.log(josnData);
-  window.location.replace('/trip/location_detail?id='+(e-1));
+  window.location.replace("/trip/location_detail?id=" + (e - 1));
 }
 function change(e) {
   console.log(josnData);
-  window.location.replace('/guide/guide_detail?id='+(e-1));
+  window.location.replace("/guide/guide_detail?id=" + (e - 1));
 }
 
 //分頁製作
@@ -102,7 +258,7 @@ function displayData(data) {
       str += `<a href=""></a>
       <div onclick="change(${
         item.memberId
-      })"  class="col-md-3 py-2 px-2"><div class="card"><div class="card bg-dark text-white text-left">
+      })"  class="col-md-3 py-2 px-2 imgTripList"><div class="card"><div class="card bg-dark text-white text-left">
         <img class="card-img-top bg-cover" height="155px" src="/images/guide/${
           item.memberPic
         }">
@@ -130,7 +286,7 @@ function displayData(data) {
       str += `
       <div onclick="redirect(${item.tripId})"  id="${
         item.tripId
-      }" class=" col-md-3 py-2 px-2" ><div class="card"><div class="card bg-dark text-white text-left">
+      }" class=" col-md-3 py-2 px-2 imgTripList" ><div class="card"><div class="card bg-dark text-white text-left">
         <img class="card-img-top bg-cover" height="155px" src="/images/trip/${
           item.tripPic1
         }">
@@ -192,3 +348,19 @@ function switchPage(e) {
   pagination(josnData, page);
 }
 pageid.addEventListener("click", switchPage);
+
+// 圖片淡入效果
+$(document).ready(function(){
+  var a,b,c;
+  a = $(window).height(); //瀏覽器窗口高度
+  var group = $("#content");
+  $(window).scroll(function(){
+  b = $(this).scrollTop(); //頁面滾動的高度
+  c = group.offset().top; //元素距離文檔（document）頂部的高度
+    if(a+b>c){
+      // alert("123");
+      $("#content").animate({'opacity':'1'},1000);
+    }
+  });
+});
+  

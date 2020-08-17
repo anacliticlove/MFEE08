@@ -20,6 +20,7 @@
     <script src="/owl/owl.carousel.min.js"></script>
     <script src="/javascripts/popper.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/yo_shoppay.js"></script>
     <link rel="stylesheet" href="/stylesheets/yo_shoppay.css">
     <style>
 
@@ -29,29 +30,31 @@
 <body>
 
     <%- include mod_header -%>
-    
+
     <!-- ## navbar 導覽列 -->
     <br>
     <br>
     <br>
     <br>
     <br>
+    <input id="checkUser" type="hidden" value="<%=userId%>">
     <!-- 結帳流程 -->
-    <div class="w">
-        <ol id="" class="breadcrumb">
-            <li class="active" style="color: blue;font-size: 1.2em">
-                <img src="/images/icon/PNG/16px/059-cart.png" alt=""> <b>購物車</b> 
-            </li>
-            <li >
-                <img src="/images/icon/PNG/16px/007-pencil2.png" alt=""> 填寫資料與付款
-            </li>
 
-            <li >
-                <img src="/images/icon/PNG/16px/273-checkmark.png" alt=""> 訂購完成
-            </li>
-        </ol>
-    </div>
-    <div class="w">
+    <div style="width:80vw; margin: auto;">
+        <div>
+            <ol id="" class="breadcrumb">
+                <li class="active" style="color: blue;font-size: 1.2em">
+                    <img src="/images/icon/PNG/16px/059-cart.png" alt=""> <b>購物車</b>
+                </li>
+                <li>
+                    <img src="/images/icon/PNG/16px/007-pencil2.png" alt=""> 填寫資料與付款
+                </li>
+
+                <li>
+                    <img src="/images/icon/PNG/16px/273-checkmark.png" alt=""> 訂購完成
+                </li>
+            </ol>
+        </div>
         <div class="cartPayHead">
             <div>
                 <p>購買資料</p>
@@ -64,84 +67,41 @@
             </div>
 
         </div>
-        <!-- 結帳頁_基本資料 -->
+        <!-- 結帳頁_確認內容 -->
         <div class="cartPayBody">
-            <form>
-                <div class="form-group row pt">
-                    <div class="col-1"></div>
-                    <label for="" class="col-2   col-form-label">姓名</label>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="fa fa-address-book"></i>
-                                </div>
-                            </div>
-                            <input id="" name="" type="text" class="form-control">
-                        </div>
-                    </div>
+            <div style="height: 300px;overflow-y: scroll; position: relative;">
+                <table class="shopList">
+                    <tr style="position:absolute fixed;background-color: gray;">
+                        <td>&emsp;</td>
+                        <td>行程</td>
+                        <td>時間</td>
+                        <td>人數</td>
+                        <td>價錢</td>
+                        <td>語言</td>
+                        <td style="width: 300px;">特殊要求</td>
+                    </tr>
+
+                </table>
+            </div>
+            <h2 id="totalList"></h2>
+            <ul id="total"></ul>
+            <div>
+                <div class="offset-4 col-4">
+                    <button id="btn1" class="btn btn-primary"> 下一步</button>
                 </div>
-                <div class="form-group row mt">
-                    <div class="col-1"></div>
-                    <label class="col-2 col-form-label" for="text">電話</label>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="fa fa-volume-control-phone"></i>
-                                </div>
-                            </div>
-                            <input id="text" name="text" type="text" class="form-control" required="required">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row mt">
-                    <div class="col-1"></div>
-                    <label for="text1" class="col-2 col-form-label">信箱</label>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="fa fa-telegram"></i>
-                                </div>
-                            </div>
-                            <input id="text1" name="text1" type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row mt">
-                    <div class="col-1"></div>
-                    <label for="text2" class="col-2 col-form-label">台灣身分證字號</label>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <img src="" alt="">
-                                </div>
-                            </div>
-                            <input id="text2" name="text2" type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <!-- <div class="col-5"></div> -->
-                    <div class="offset-4 col-4">
-                        <button name="reset" type="reset" class="btn btn-danger">清除</button>
-                        <button name="submit" type="submit" class="btn btn-primary">下一步</button>
-                    </div>
-                </div>
-            </form>
+            </div>
+
 
         </div>
         <br>
-        <!-- 結帳頁_確認內容 -->
-        <div class="w">
+        <!-- 結帳頁_基本資料 -->
+        <div id="p1" class="w">
             <ol id="" class="breadcrumb">
                 <li class="active">
                     <img src="/images/icon/PNG/16px/059-cart.png" alt=""> 購物車
                 </li>
                 <li style="color: blue;font-size: 1.2em">
-                    <img src="/images/icon/PNG/16px/007-pencil2.png" alt=""> <b>填寫資料與付款</b> 
+                    <img src="/images/icon/PNG/16px/007-pencil2.png" alt=""> <b>填寫資料與付款</b>
                 </li>
 
                 <li>
@@ -162,51 +122,79 @@
                 </div>
 
             </div>
-            <div id="p1" class="cartPayBody">
-                <table>
-                    <tr>
-                        <td>&emsp;</td>
-                        <td>行程</td>
-                        <td>時間</td>
-                        <td>人數</td>
-                        <td>價錢</td>
-                    </tr>
-                    <tr>
-                        <td> <img class="img-fluid" src="/images/trip/trip2_1.jpg" alt=""></td>
-                        <td>台灣澎湖｜海洋牧場鮮蚵吃到飽｜澎湖海上牧場垂釣樂</td>
-                        <td>2020-07-17 <br>場次：14:00</td>
-                        <td>成人 x 1 <br>小孩 x 1</td>
-                        <td>TWD 340</td>
-                    </tr>
-                </table>
-                <form>
-                    <div class="form-group row formItem">
-                        <label for="select1" class="col-2 col-form-label">導覽語言</label>
-                        <div class="col-4">
-                            <select id="select1" name="select1" class="custom-select">
-                                <option value="國語">國語</option>
-                                <option value="台語">台語</option>
-                                <option value="英語">英語</option>
-                            </select>
+            <div class="cartPayBody">
+                <div class="form-group row pt">
+                    <div class="col-1"></div>
+                    <label for="" class="col-2   col-form-label">姓名</label>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-address-book"></i>
+                                </div>
+                            </div>
+
+                            <input id="memberName" name="memberName" type="text" class="form-control"
+                                value="<%=payData[0].memberName%>">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="textarea" class="col-2 col-form-label">備註</label>
-                        <div class="col-8">
-                            <textarea id="textarea" name="textarea" cols="40" rows="4" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group row mt">
+                    <div class="col-1"></div>
+                    <label class="col-2 col-form-label" for="text">電話</label>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-volume-control-phone"></i>
+                                </div>
+                            </div>
+                            <input id="memberTel" name="memberTel" type="tel"" class=" form-control" required="required"
+                                value="<%=payData[0].memberTel%>">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="offset-4 col-4">
-                            <button name="submit" type="reset" class="btn btn-danger">清除</button>
-                            <a href="#p3"><button name="submit" type="submit" class="btn btn-primary"> 下一步</button></a>
+                </div>
+                <div class="form-group row mt">
+                    <div class="col-1"></div>
+                    <label for="text1" class="col-2 col-form-label">生日</label>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-telegram"></i>
+                                </div>
+                            </div>
+                            <input id="memberBir" name="memberBir" type="date" class="form-control" value="">
                         </div>
                     </div>
-                </form>
+                </div>
+                <div class="form-group row mt">
+                    <div class="col-1"></div>
+                    <label for="text2" class="col-2 col-form-label">信箱</label>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <input id="memberEmail" name="memberEmail" type="email" class="form-control"
+                                value="<%=payData[0].memberEmail%>">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <!-- <div class="col-5"></div> -->
+                    <div class="offset-4 col-4">
+                        <button id="btn2" class="btn btn-primary">下一步</>
+                    </div>
+                </div>
+
             </div>
             <br>
             <div id="p3" class="w">
-                <ol id="" class="breadcrumb">
+                <ol class="breadcrumb">
                     <li class="active">
                         <img src="/images/icon/PNG/16px/059-cart.png" alt=""> 購物車
                     </li>
@@ -214,8 +202,8 @@
                         <img src="/images/icon/PNG/16px/007-pencil2.png" alt=""> 填寫資料與付款
                     </li>
 
-                    <li  style="color: blue;font-size: 1.2em;">
-                        <img src="/images/icon/PNG/16px/273-checkmark.png" alt=""> <b>訂購完成</b> 
+                    <li style="color: blue;font-size: 1.2em;">
+                        <img src="/images/icon/PNG/16px/273-checkmark.png" alt=""> <b>訂購完成</b>
                     </li>
                 </ol>
             </div>
@@ -233,45 +221,43 @@
             </div>
             <!-- 結帳頁_付款方式-->
             <div class="cartPayBody">
-                <form>
-                    <div class="form-group row  formItem2">
-                        <label class="col-2 col-form-label">付費方式</label>
-                        <div class="col-4">
-                            <div class="custom-controls-stacked">
-                                <div class="custom-control custom-radio">
-                                    <input name="radio" id="radio_0" type="radio" required="required"
-                                        class="custom-control-input" value="LinePay">
-                                    <label for="radio_0" class="custom-control-label">LinePay</label>
-                                    <img class="img-fluid" src="/images/other/LINE_Pay.png" alt="">
-                                </div>
+                <input type="hidden" id="memberId" value="<%=userId%>">
+                <div class="form-group row  formItem2">
+                    <label class="col-2 col-form-label">付費方式</label>
+                    <div class="col-4">
+                        <div class="custom-controls-stacked">
+                            <div class="custom-control custom-radio">
+                                <input name="memberPay" id="radio_0" type="radio" required="required"
+                                    class="custom-control-input" value="LinePay">
+                                <label for="radio_0" class="custom-control-label">LinePay</label>
+                                <img class="img-fluid" src="/images/other/LINE_Pay.png" alt="">
                             </div>
-                            <div class="custom-controls-stacked">
-                                <div class="custom-control custom-radio">
-                                    <input name="radio" id="radio_1" type="radio" required="required"
-                                        class="custom-control-input" value="ApplePay">
-                                    <label for="radio_1" class="custom-control-label">ApplePay</label>
-                                    <img class="img-fluid" src="/images/other/apple_pay.jpg" alt="">
-                                </div>
+                        </div>
+                        <div class="custom-controls-stacked">
+                            <div class="custom-control custom-radio">
+                                <input name="memberPay" id="radio_1" type="radio" required="required"
+                                    class="custom-control-input" value="ApplePay">
+                                <label for="radio_1" class="custom-control-label">ApplePay</label>
+                                <img class="img-fluid" src="/images/other/apple_pay.jpg" alt="">
                             </div>
-                            <div class="custom-controls-stacked">
-                                <div class="custom-control custom-radio">
-                                    <input name="radio" id="radio_2" type="radio" required="required"
-                                        class="custom-control-input" value="CreditCard">
-                                    <label for="radio_2" class="custom-control-label">信用卡</label>
-                                    <img class="img-fluid" src="/images/other/信用卡.png" alt="">
-                                </div>
+                        </div>
+                        <div class="custom-controls-stacked">
+                            <div class="custom-control custom-radio">
+                                <input name="memberPay" id="radio_2" type="radio" required="required"
+                                    class="custom-control-input" value="CreditCard">
+                                <label for="radio_2" class="custom-control-label">信用卡</label>
+                                <img class="img-fluid" src="/images/other/信用卡.png" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="offset-4 col-4">
-                            <button name="submit" type="reset" class="btn btn-danger">上一步</button>
-                            <button name="submit" type="submit" class="btn btn-primary">確定結帳</button>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <div class="offset-4 col-4">
+                        <button name="submit" type="reset" class="btn btn-danger">上一步</button>
+                        <button id="summit" class="btn btn-primary">確定結帳</button>
                     </div>
-                </form>
+                </div>
             </div>
-
         </div>
     </div>
     <br>
@@ -330,7 +316,7 @@
             <p><span>TWD</span>&emsp;<span>360</span></p>
         </div>
         <div class="item">
-            <h5>	
+            <h5>
                 谷關風景特定區</h5>
             <div>
                 <img class="img-fluid" src="/images/trip/trip6_1.jpg" alt="">
@@ -368,7 +354,7 @@
         </div>
 
     </div>
-</div>
+    </div>
     <!-- 輪播商品_結束 -->
     <!-- footer start -->
     <div class="footer">
@@ -400,33 +386,6 @@
     <!-- footer end -->
 
     <script type="text/javascript" src="../../public/links/js/jquery.toast.js"></script>
-
-    <script type="text/javascript" src="../../public/links/js/jquery.toast.js"></script>
-    <script>
-        // 使用方式:
-        // showToast("標題", "提示文字") 例如:
-        // showToast("Hint", "請點一下正確的圖案");
-        function showToast(heading, message) {
-            $.toast({
-                text: message, // Text that is to be shown in the toast
-                heading: heading, // Optional heading to be shown on the toast
-                icon: 'warning', // Type of toast icon
-                showHideTransition: 'fade', // fade, slide or plain
-                allowToastClose: true, // Boolean value true or false
-                hideAfter: 3000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
-                stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
-                position: 'top-right', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
-                textAlign: 'left', // Text alignment i.e. left, right or center
-                loader: true, // Whether to show loader or not. True by default
-                loaderBg: '#9ec600', // Background color of the toast loader
-                beforeShow: function () { }, // will be triggered before the toast is shown
-                afterShown: function () { }, // will be triggered after the toat has been shown
-                beforeHide: function () { }, // will be triggered before the toast gets hidden
-                afterHidden: function () { } // will be triggered after the toast has been hidden
-            });
-        }
-    </script>
-
     <!-- 輪播圖控制器 -->
     <script>
         $(document).ready(function () {

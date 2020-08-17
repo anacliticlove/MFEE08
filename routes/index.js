@@ -21,16 +21,57 @@ router.get('/', function(req, res, next) {
     userName: req.session.userName,
   });
 });
+// index首頁 接收form表單
+router.use(bodyParser.urlencoded({extended:false}));
+
+router.post("/", function (req, res, next) {
+  // res.send(req.body);
+  if(req.body.title == "trip") {
+    req.session.locatTrip = req.body.area;
+    // res.send(req.session.locatTrip);
+    res.redirect("/trip/searchTrip");
+
+  }else if(req.body.title == "guide") {
+    req.session.locatGuide = req.body.area;
+    // res.send(req.session.locatGuide);
+    res.redirect("/guide/searchGuide");
+  }
+  next();
+});
 router.get("/guide", function (req, res, next) {
   res.render("guide_list", {
     userName: req.session.userName,
     title: "guide",
+    area: ""
   });
 });
 router.get("/trip", function (req, res, next) {
   res.render("guide_list", {
     userName: req.session.userName,
     title: "trip",
+    area: ""
+  });
+});
+router.get("/trip/searchTrip", function (req, res, next) {
+  // conn.query("SELECT * FROM `triplist` WHERE `tripState` = "+ `"${req.session.locatTrip}"`, "", function (err, rows) {
+  //  if (err) {
+  //     console.log(JSON.stringify(err));
+  //     return;
+  //   }
+    // response.send(JSON.stringify(rows));
+    res.render("guide_list", {
+      userName: req.session.userName,
+      title: "trip",
+      area: req.session.locatTrip
+    });
+  });
+// });
+
+router.get("/guide/searchGuide", function (req, res, next) {
+  res.render("guide_list", {
+    userName: req.session.userName,
+    title: "guide",
+    area:req.session.locatGuide
   });
 });
 router.get("/guide/guide_detail", function (req, res, next) {
@@ -103,8 +144,8 @@ router.post("/trip/location_detail", function (req, res, next) {
 console.log(req.body);
 var tD = toString(req.body.tripDate);
 var tT= toString(req.body.tripTime)
-conn.query(('INSERT INTO `cartlist`(`memberId`,`preTripName`,`preGuideId`,`preTripDate`,`preTripTime`,`tripId`,`tripPeo`,`orderLan`,`preTripPrice`,`tripNeed`) VALUES('
-+`'${req.body.memberId}','${req.body.preTripName}','${req.body.preGuideId}','${req.body.tripDate}','${req.body.tripTime}','${req.body.preTripId}','${req.body.adultCount}','${req.body.orderLan}','${req.body.totalPrice}','${req.body.Content}')`), "", function (err, rows) {
+conn.query(('INSERT INTO `cartlist`(`membeTel`,`memberId`,`preTripName`,`preGuideId`,`preTripDate`,`preTripTime`,`tripId`,`tripPeo`,`orderLan`,`preTripPrice`,`tripNeed`) VALUES('
++`'${req.session.userName}','${req.body.memberId}','${req.body.preTripName}','${req.body.preGuideId}','${req.body.tripDate}','${req.body.tripTime}','${req.body.preTripId}','${req.body.adultCount}','${req.body.orderLan}','${req.body.totalPrice}','${req.body.Content}')`), "", function (err, rows) {
 res.redirect("/users/shopcart");
 })
 });

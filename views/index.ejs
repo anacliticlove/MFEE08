@@ -54,16 +54,16 @@
         選擇旅遊夥伴來一趟美好的難忘之旅吧!
       </h2>
       <!-- form 表單 -->
-      <form action="" method="">
+      <form action="/" method="POST">
         <div class="form-row pb-3">
 
           <!-- Q1.尋找類型 State -->
           <div class="form-group col-md-3">
             <label for="inputState"></label>
-            <select id="inputState" class="form-control">
-              <option selected>想找什麼呢?</option>
-              <option>找導遊</option>
-              <option>找行程</option>
+            <select  name="title" id="inputState" class="form-control">
+              <option selected value="wantFind">想找什麼呢?</option>
+              <option value="guide">找導遊</option>
+              <option value="trip">找行程</option>
             </select>
           </div>
           <!-- ## Q1.尋找類型 State -->
@@ -71,13 +71,13 @@
           <!-- Q2.尋找區域 Area -->
           <div class="form-group col-md-3">
             <label for="inputArea"></label>
-            <select id="inputArea" class="form-control">
-              <option selected>想去的地方?</option>
-              <option>北部</option>
-              <option>中部</option>
-              <option>南部</option>
-              <option>花東</option>
-              <option>外離島</option>
+            <select name="area" id="inputArea" class="form-control">
+              <option selected value="where">想去的地方?</option>
+              <option value="北部">北部</option>
+              <option value="中部">中部</option>
+              <option value="南部">南部</option>
+              <option value="東部">花東</option>
+              <option value="外離島">外離島</option>
             </select>
           </div>
           <!-- ## Q2.尋找區域 Area -->
@@ -607,7 +607,7 @@
         </div>
         <!-- right -->
         <div class="col-md-6">
-          <img src="/images/guide_g.jpg" alt="" class="bgWhiteImg">
+          <img src="/images/guide_g(1).png" alt="" class="bgWhiteImg mt-2">
         </div>
       </div>
     </div>
@@ -865,24 +865,26 @@
         <p class="mt-3 mb-5">若您有任何建議或疑問，歡迎來信與我們聯絡，或致電客服專線：0800-000-666，我們將用心聆聽，並以最快的速度回應給您，謝謝~
         </p>
         <!-- Form -->
-        <form action="" method="">
-          <div class="form-group">
+        <form method="POST" action="send">
+          <div class="">
             <label for="InputName">你的大名 :</label>
-            <input type="text" class="form-control" id="InputName" placeholder="">
+            <input type="text" class="form-control"name="name" id="InputName" placeholder="">
           </div>
-          <div class="form-group">
+          <div class="">
             <label for="InputTel">聯絡電話 :</label>
-            <input type="tel" class="form-control" id="InputTel" placeholder="">
+            <input type="tel" class="form-control" id="InputTel"name="phone" placeholder="">
           </div>
-          <div class="form-group">
+          <div class="">
             <label for="InputEmail">聯絡信箱 :</label>
-            <input type="email" class="form-control" id="InputEmail" placeholder="">
+            <input type="email" class="form-control" name="email" id="InputEmail" placeholder="">
           </div>
-          <div class="form-group">
+          <div class="">
             <label for="Textarea">訊息內容 :</label>
-            <textarea class="form-control" id="Textarea" rows="4" placeholder="請說明你的問題..."></textarea>
+            <textarea class="form-control" id="Textarea" rows="4"name="message" placeholder="請說明你的問題..."></textarea>
           </div>
-          <input type="submit" class="btn btn-success" value="送出">
+         
+            <button class="btn btn-primary" type="submit">送出</button>
+          
         </form>
         <!-- ## Form -->
       </div>

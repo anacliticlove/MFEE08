@@ -17,7 +17,7 @@
 
 <body>
   <!-- header start -->
-  <header class="navbar">
+  <header>
     <!-- logo -->
     <div class="logo">
       <a href="/">
@@ -27,7 +27,9 @@
     <!-- 搜尋欄 -->
     <div class="search">
       <input type="search" value="輸入城市、景點、體驗行程或活動名稱..." />
-      <button>搜尋</button>
+      <!-- <button>搜尋</button> -->
+      <input type="submit" value="搜尋" class="searchFun"></input>
+     
     </div>
     <!-- 登入/註冊 -->
     <div class="login">
@@ -64,18 +66,19 @@
   <!-- header end -->
   <!-- banner start -->
   <div class="banner">
-    <img src="/images/header-travel.jpg" alt="" />
+    <img src="/images/headerViwImg.jpg" alt="" />
   </div>
   <!-- banner end -->
   <!-- 熱門導遊 start -->
   <div class="container">
     <div class="select">
       <div class="select_basic">
-        <button onclick="findSide()">全部</button>
-        <button onclick="findSide()">北部</button>
-        <button onclick="findSide()">中部</button>
-        <button onclick="findSide()">南部</button>
-        <button onclick="findSide()">東部</button>
+        <button onclick="findSide(this)" class="btnAll" >全部</button>
+        <button onclick="findSide(this)" class="btnNorth">北部</button>
+        <button onclick="findSide(this)" class="btnMidst">中部</button>
+        <button onclick="findSide(this)" class="btnSouth">南部</button>
+        <button onclick="findSide(this)" class="btnEast">東部</button>
+        <button onclick="findSide(this)" class="btnIslandsArea">外離島</button>
         <!-- <em>｜</em> -->
       </div>
     </div>
@@ -172,6 +175,7 @@
       </dl>
     </div>
     <input id="sss" style="display: none;" class="sss" type="text" name="" value=<%=title%>>
+    <input id="ssa" style="display: none;" class="ssa" type="text" name="" value=<%=area%>>
   </div>
 
   <script src="/javascripts/jquery.min.js"></script>
